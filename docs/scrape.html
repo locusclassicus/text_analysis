@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./tokenize.html" rel="next">
 <link href="./regex.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -198,6 +198,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tokenize.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Токенизация и лемматизация</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./count.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sentiment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./embeddings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">embeddings</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./networks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./graph.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./stylo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Литература</span></a>
   </div>
@@ -219,7 +267,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#парсинг-html-вложенные-элементы" id="toc-парсинг-html-вложенные-элементы" class="nav-link" data-scroll-target="#парсинг-html-вложенные-элементы"><span class="header-section-number">8.5</span> Парсинг html: вложенные элементы</a></li>
   <li><a href="#разведывательный-анализ" id="toc-разведывательный-анализ" class="nav-link" data-scroll-target="#разведывательный-анализ"><span class="header-section-number">8.6</span> Разведывательный анализ</a></li>
   <li><a href="#html-таблицы" id="toc-html-таблицы" class="nav-link" data-scroll-target="#html-таблицы"><span class="header-section-number">8.7</span> Html таблицы</a></li>
-  <li><a href="#wikisource" id="toc-wikisource" class="nav-link" data-scroll-target="#wikisource"><span class="header-section-number">8.8</span> Wikisource</a></li>
+  <li><a href="#selector-gadget" id="toc-selector-gadget" class="nav-link" data-scroll-target="#selector-gadget"><span class="header-section-number">8.8</span> Selector Gadget</a></li>
   </ul>
 </nav>
     </div>
@@ -249,12 +297,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Эта глава опирается в основом на <a href="https://r4ds.hadley.nz/webscraping.html">второе издание</a> книги R for Data Science Хадли Викхема.</p>
 <section id="структура-html" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="структура-html"><span class="header-section-number">8.1</span> Структура html</h2>
-<p>Документы html (HyperText Markup Language) имеют ирархическую структуру, состоящую из <em>элементов</em>. В каждом элементе есть <em>открывающий тег</em> (&lt;tag&gt;), опциональные <em>атрибуты</em> (id='first') и <em>закрывающий тег</em> (&lt;/tag&gt;). Все, что находится между открывающим и закрывающим тегом, называется <em>содержанием</em> элемента.</p>
+<p>Документы html (HyperText Markup Language) имеют ирархическую структуру, состоящую из <em>элементов</em>. В каждом элементе есть <em>открывающий тег</em> (<code>&lt;tag&gt;</code>), опциональные <em>атрибуты</em> (<code>id='first'</code>) и <em>закрывающий тег</em> (<code>&lt;/tag&gt;</code>). Все, что находится между открывающим и закрывающим тегом, называется <em>содержанием</em> элемента.</p>
 <p>Важнейшие теги, о которых стоит знать:</p>
 <ul>
-<li>&lt;html&gt; (есть всегда), с двумя детьми (дочерними элементами): &lt;head&gt; и &lt;body&gt;</li>
-<li>элементы, отвечающие за структуру: &lt;h1&gt; (заголовок), &lt;section&gt;, &lt;p&gt; (параграф), &lt;ol&gt; (упорядоченный список)</li>
-<li>элементы, отвечающие за оформление: &lt;b&gt; (bold), &lt;i&gt; (italics), &lt;a&gt; (ссылка)</li>
+<li><code>&lt;html&gt;</code> (есть всегда), с двумя детьми (дочерними элементами): <code>&lt;head&gt;</code> и <code>&lt;body&gt;</code>;</li>
+<li>элементы, отвечающие за структуру: <code>&lt;h1&gt;</code> (заголовок), <code>&lt;section&gt;</code>, <code>&lt;p&gt;</code> (параграф), <code>&lt;ol&gt;</code> (упорядоченный список);</li>
+<li>элементы, отвечающие за оформление: <code>&lt;b&gt;</code> (bold), <code>&lt;i&gt;</code> (italics), <code>&lt;a&gt;</code> (ссылка).</li>
 </ul>
 <p>Чтобы увидеть структуру веб-страницы, надо нажать правую кнопку мыши и выбрать <code>View Source</code> (это работает и для тех html, которые хранятся у вас на компьютере).</p>
 </section>
@@ -642,19 +690,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="html-таблицы" class="level2" data-number="8.7">
 <h2 data-number="8.7" class="anchored" data-anchor-id="html-таблицы"><span class="header-section-number">8.7</span> Html таблицы</h2>
-<p>Если вам повезет, то ваши данные уже будут храниться в HTML-таблице, и их можно будет просто считать из этой таблицы<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Распознать таблицу в браузере обычно несложно: она имеет прямоугольную структуру из строк и столбцов, и ее можно скопировать и вставить в такой инструмент, как Excel.</p>
-<p>Таблицы HTML строятся из четырех основных элементов: &lt;table&gt;, &lt;tr&gt; (строка таблицы), &lt;th&gt; (заголовок таблицы) и &lt;td&gt; (данные таблицы). Мы соберем информацию о <a href="https://hum.hse.ru/proj/project2022_2024">проектных группах</a> ФГН в 2022-2024 г.</p>
+<p>Если вам повезет, то ваши данные уже будут храниться в HTML-таблице, и их можно будет просто считать <a href="https://r4ds.hadley.nz/webscraping#tables">из этой таблицы</a>. Распознать таблицу в браузере обычно несложно: она имеет прямоугольную структуру из строк и столбцов, и ее можно скопировать и вставить в такой инструмент, как Excel.</p>
+<p>Таблицы HTML строятся из четырех основных элементов: <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code> (строка таблицы), <code>&lt;th&gt;</code> (заголовок таблицы) и <code>&lt;td&gt;</code> (данные таблицы). Мы достанем программу курса “Количественные методы в гуманитарных науках: критическое введение” (2023/2024).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"https://hum.hse.ru/proj/project2022_2024"</span>)</span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>html <span class="ot">&lt;-</span> <span class="fu">read_html</span>(<span class="st">"http://criticaldh.ru/program/"</span>)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>my_table <span class="ot">&lt;-</span> html <span class="sc">|&gt;</span>  </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_element</span>(<span class="st">".bordered"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="dv">1</span>)</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>my_table</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["X1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["X2"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"Название проекта","2":"Руководитель проектной группы"},{"1":"Проекты Школы исторических наук","2":"Проекты Школы исторических наук"},{"1":"Россия и русские в корреспонденции и дневниках британских дипломатов при дворе Екатерины II","2":"Смилянская Елена Борисовна"},{"1":"Социальные и культурные исследования медицины XVIII-XXI вв.","2":"Афанасьева Анна Эдгардовна"},{"1":"Проекты Школы лингвистики","2":"Проекты Школы лингвистики"},{"1":"«Найти общий язык»: современные методы исследования языковых ситуаций в России","2":"Влахов Андриан Викторович"},{"1":"Проекты Школы филологических наук","2":"Проекты Школы филологических наук"},{"1":"Amour courtois: антология куртуазной любви","2":"Долгорукова Наталья Михайловна"},{"1":"База данных по историческим изменениям русских конструкций «Diachronicon»","2":"Буденная Евгения Владимировна"},{"1":"Летопись «Доктора Живаго» Бориса Пастернака (1945-1960): авторский замысел, история работы и публикации, рецепция современников (база данных)","2":"Поливанов Константин Михайлович"},{"1":"Проекты Школы философии и культурологии","2":"Проекты Школы философии и культурологии"},{"1":"Интерактивное учебное пособие по философской логике и формальной философии","2":"Долгоруков Виталий Владимирович"},{"1":"Проект «Основные понятия философии техники от Э. Каппа до STS. Index rerum»","2":"Михайловский Александр Владиславович"},{"1":"Цифровая античность","2":"Алиева Ольга Валерьевна"},{"1":"Проект Института классического Востока и античности","2":"Проект Института классического Востока и античности"},{"1":"Переплетенная история / Entangled History: мусульмане и Другие в России и вовне","2":"Бессмертная Ольга Юрьевна"},{"1":"Разработка учебных материалов для изучения языков Библии и введения в современную библеистику","2":"Селезнёв Михаил Георгиевич"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["X1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["X2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["X3"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"Дата","2":"Тема","3":"Спикер"},{"1":"6 апреля","2":"Данные вокруг гуманитария: найти, собрать, исследовать!","3":"А.Ю. Володин (МГУ, СФУ)"},{"1":"13 апреля","2":"Построение ландшафта области знаний","3":"Г.А. Мороз (НИУ ВШЭ)"},{"1":"20 апреля","2":"Избранные главы информатики. Исследовательский мультитул","3":"И.В. Бибилов (ЕУ)"},{"1":"27 апреля","2":"“Дальнее чтение” в литературоведении и не только: принципы, направления, открытия","3":"А.В. Вдовин (НИУ ВШЭ)"},{"1":"11 мая","2":"Сетевой анализ","3":"Д.А. Скоринкин (Университет Потсдама)"},{"1":"18 мая","2":"Стилометрия и большие языковые модели","3":"О.В. Алиева (НИУ ВШЭ),Е.А. Сальников (НИУ ВШЭ)"},{"1":"25 мая","2":"Культуромика","3":"А.А. Бонч-Осмоловская (НИУ ВШЭ)"},{"1":"1 июня","2":"Эмбеддинги и историческая семантика","3":"Д.А. Рыжова (НИУ ВШЭ)"},{"1":"8 июня","2":"Теоретические итоги","3":"Б.В. Орехов (НИУ ВШЭ)"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -685,20 +733,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Сколько всего слов на букву П в НФЭ?</p>
 </div>
 </div>
-<form name="form_94836" onsubmit="return validate_form_94836()" method="post">
-<input type="text" placeholder="" name="answer_94836">
+<form name="form_40888" onsubmit="return validate_form_40888()" method="post">
+<input type="text" placeholder="" name="answer_40888">
 <input type="submit" value="check">
-<div id="result_94836"></div>
+<div id="result_40888"></div>
 </form>
-<script>function validate_form_94836() {var x, text; var x = document.forms['form_94836']['answer_94836'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_94836').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_40888() {var x, text; var x = document.forms['form_40888']['answer_40888'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_40888').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_94836').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_40888').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </section>
-<section id="wikisource" class="level2" data-number="8.8">
-<h2 data-number="8.8" class="anchored" data-anchor-id="wikisource"><span class="header-section-number">8.8</span> Wikisource</h2>
-<p>Многие тексты доступны на сайте Wikisource.org. Попробуем извлечь все сказки Салтыкова-Щедрина.</p>
+<section id="selector-gadget" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="selector-gadget"><span class="header-section-number">8.8</span> Selector Gadget</h2>
+<p>Многие тексты доступны на сайте &lt;wikisource.org&gt;. Попробуем извлечь все сказки Салтыкова-Щедрина.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://ru.wikisource.org/wiki/%D0%9C%D0%B8%D1%85%D0%B0%D0%B8%D0%BB_%D0%95%D0%B2%D0%B3%D1%80%D0%B0%D1%84%D0%BE%D0%B2%D0%B8%D1%87_%D0%A1%D0%B0%D0%BB%D1%82%D1%8B%D0%BA%D0%BE%D0%B2-%D0%A9%D0%B5%D0%B4%D1%80%D0%B8%D0%BD"</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>html <span class="ot">=</span> <span class="fu">read_html</span>(url)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -880,16 +928,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Недостающие две сказки я не буду пытаться извлечь, но логику вы поняли.</p>
 <hr>
-<p><em>Поздравляем, на этом закончился первый большой раздел нашего курса “Основы работы в R” 🎐. За восемь уроков вы познакомились с основными структурами данных в R, научились собирать и трансформировать данные, строить графики, писать функции и циклы, а также готовить html-отчеты о своих исследованиях. Впереди нас ждут методы анализа текстовых данных.</em></p>
+<p><em>Поздравляем, на этом закончился первый большой раздел нашего курса “Основы работы в R” 🎆. За восемь уроков вы познакомились с основными структурами данных в R, научились собирать и трансформировать данные, строить графики, писать функции и циклы, а также готовить html-отчеты о своих исследованиях. Впереди нас ждут методы анализа текстовых данных.</em></p>
 <p><img src="https://24.media.tumblr.com/16f8aa95bbcd604292a6147b369e4048/tumblr_mttd1z5I1s1r3wl1po1_500.gif" class="img-fluid"></p>
 
 
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>https://r4ds.hadley.nz/webscraping#tables<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1309,8 +1351,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Литература">
-        <span class="nav-page-text">Литература</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tokenize.html" class="pagination-link" aria-label="Токенизация и лемматизация">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Токенизация и лемматизация</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
