@@ -225,7 +225,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./count.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Распределения слов и анализ частотностей</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -552,7 +552,7 @@ div.csl-indent {
 </section>
 <section id="обучение-модели" class="level2" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="обучение-модели"><span class="header-section-number">9.3</span> Обучение модели</h2>
-<p>Можно заметить, что модель Perseus 2.5 справилась не безупречно: все бельги оказались женского рода, а кельты и вовсе признаны глаголом. Есть ошибки в падежах и числах: например, <em>provinciae</em> в четвертом предложении, конечно, не именительный, а родительный падеж. Множество топонимов не опознано в качестве имен собственных.</p>
+<p>Можно заметить, что модель Perseus 2.5 справилась не безупречно: все бельги оказались женского рода, а кельты и вовсе признаны глаголом. Есть ошибки в падежах и числах: например, “provinciae” в четвертом предложении, конечно, не именительный, а родительный падеж. Множество топонимов не опознано в качестве имен собственных.</p>
 <p>Здесь есть два пути. Первый: пробовать другие модели, доступные в пакете <code>udpipe</code>. Например, для латыни это <a href="https://universaldependencies.org/treebanks/la_proiel/index.html">PROIEl</a>, обученная не только на классических авторах, но и на Вульгате, или <a href="https://universaldependencies.org/treebanks/la_ittb/index.html">ITTB</a>, обученная на сочинениях Фомы.</p>
 <p>Второй путь - обучить модель самостоятельно. Например, для трибанка Perseus доступны более свежие версии (2.13 на момент написания этой главы) на <a href="https://github.com/UniversalDependencies/UD_Latin-Perseus">GitHub</a>. Вот некоторые изменения:</p>
 <ul>
@@ -561,7 +561,7 @@ div.csl-indent {
 <li>добавлен тип для местоимения (<code>PronType</code>) и вид для глагола (<code>Aspect</code>) и др.</li>
 </ul>
 <p>Инструкцию по обучению модели можно найти <a href="https://www.bnosac.be/index.php/blog/102-udpipe-r-package-updated">здесь</a>. По сути трибанк представляет собой коллекцию проверенных вручную CONLL-U файлов, которые передаются нейросети. Следуя этой инструкции и используя трибанк Perseus 2.13, мы обучили новую модель (это заняло около 8 часов на персональном компьютере), которую можно <a href="https://github.com/locusclassicus/text_analysis_2024/raw/main/latin_model/la_perseus-2.13-20231115.udpipe">загрузить</a> и использовать для аннотации.</p>
-<p>Надо иметь в виду, что само по себе обновление трибанка еще не гарантирует того, что модель будет лучше справляться с парсингом: многое зависит от параметров обучения. В нашем случае, впрочем, некоторые улучшения есть: например, <em>provinciae</em> корректно опознано как родительный падеж. Но есть и потери: <em>fortissimi</em> в том же предложении выше - это <em>nominativus pluralis</em>, который ошибочно опознан как генитив единственного числа.</p>
+<p>Надо иметь в виду, что само по себе обновление трибанка еще не гарантирует того, что модель будет лучше справляться с парсингом: многое зависит от параметров обучения. В нашем случае, впрочем, некоторые улучшения есть: например, “provinciae” корректно опознано как родительный падеж. Но есть и потери: “fortissimi” в том же предложении выше - это nominativus pluralis, который ошибочно опознан как генитив единственного числа.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>latin_perseus_new <span class="ot">&lt;-</span> <span class="fu">udpipe_load_model</span>(<span class="st">"../latin_model/la_perseus-2.13-20231115.udpipe"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -680,15 +680,16 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Посмотрим на местоимения в контексте.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(rel_pron<span class="sc">$</span>sentence[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>], <span class="fu">paste0</span>(<span class="st">" "</span>, rel_pron<span class="sc">$</span>token[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]))</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] │ Gallia est omnis divisa in partes tres,&lt; quarum&gt; unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.
-[2] │ Gallia est omnis divisa in partes tres, quarum unam incolunt Belgae, aliam Aquitani, tertiam&lt; qui&gt; ipsorum lingua Celtae, nostra Galli appellantur.
-[3] │ Horum omnium fortissimi sunt Belgae, propterea quod a cultu atque humanitate provinciae longissime absunt, minimeque ad eos mercatores saepe commeant atque ea&lt; quae&gt; ad effeminandos animos pertinent important, proximique sunt Germanis, qui trans Rhenum incolunt, quibuscum continenter bellum gerunt.</code></pre>
-</div>
-</div>
+<p>Посмотрим на некоторые местоимения в контексте. Для этого добавим html-теги:</p>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>highlight_string <span class="ot">&lt;-</span> <span class="cf">function</span>(idx) <span class="fu">str_replace_all</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  rel_pron<span class="sc">$</span>sentence[idx], </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_glue</span>(<span class="st">"(?&lt;= ){rel_pron$token[idx]}(?=</span><span class="sc">\\</span><span class="st">W)"</span>),</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_glue</span>(<span class="st">"&lt;mark&gt;{rel_pron$token[idx]}&lt;/mark&gt;"</span>))</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight_string</span>(<span class="dv">1</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>[1] “Gallia est omnis divisa in partes tres, <mark>quarum</mark> unam incolunt Belgae, aliam Aquitani, tertiam qui ipsorum lingua Celtae, nostra Galli appellantur.”</p>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">highlight_string</span>(<span class="dv">13</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>[1] “In eo itinere persuadet Castico, Catamantaloedis filio, Sequano, <mark>cuius</mark> pater regnum in Sequanis multos annos obtinuerat et a senatu populi Romani amicus appellatus erat, ut regnum in civitate sua occuparet, quod pater ante habuerit;”</p>
 </section>
 <section id="поле-xpos" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="поле-xpos"><span class="header-section-number">9.6</span> Поле XPOS</h2>
@@ -1352,8 +1353,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./count.html" class="pagination-link" aria-label="Quarto">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Quarto</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./count.html" class="pagination-link" aria-label="Распределения слов и анализ частотностей">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Распределения слов и анализ частотностей</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
