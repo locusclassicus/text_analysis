@@ -339,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Эта глава опирается в основом на <a href="https://r4ds.hadley.nz/webscraping.html">второе издание</a> книги R for Data Science Хадли Викхема.</p>
 <section id="структура-html" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="структура-html"><span class="header-section-number">8.1</span> Структура html</h2>
-<p>Документы html (HyperText Markup Language) имеют ирархическую структуру, состоящую из <em>элементов</em>. В каждом элементе есть <em>открывающий тег</em> (<code>&lt;tag&gt;</code>), опциональные <em>атрибуты</em> (<code>id='first'</code>) и <em>закрывающий тег</em> (<code>&lt;/tag&gt;</code>). Все, что находится между открывающим и закрывающим тегом, называется <em>содержанием</em> элемента.</p>
+<p>Документы html (HyperText Markup Language) имеют иерархическую структуру, состоящую из <em>элементов</em>. В каждом элементе есть <em>открывающий тег</em> (<code>&lt;tag&gt;</code>), опциональные <em>атрибуты</em> (<code>id='first'</code>) и <em>закрывающий тег</em> (<code>&lt;/tag&gt;</code>). Все, что находится между открывающим и закрывающим тегом, называется <em>содержанием</em> элемента.</p>
 <p>Важнейшие теги, о которых стоит знать:</p>
 <ul>
 <li><code>&lt;html&gt;</code> (есть всегда), с двумя детьми (дочерними элементами): <code>&lt;head&gt;</code> и <code>&lt;body&gt;</code>;</li>
@@ -492,7 +492,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="парсинг-html-вложенные-элементы" class="level2" data-number="8.5">
 <h2 data-number="8.5" class="anchored" data-anchor-id="парсинг-html-вложенные-элементы"><span class="header-section-number">8.5</span> Парсинг html: вложенные элементы</h2>
-<p>До сих пор наша задача упрощалась тем, что мы имели дело с игрушечным html для единственного сообщения. В настоящем html тег div повторяется на разных уровнях, и нам надо извлечь только такие div, которым соответствует определенный класс. Также не будем забывать, что архив выгрузился в виде трех html-файлов, так что понадобится наше знание итераций в <code>purrr</code>. Пока пробуем на одном из них:</p>
+<p>До сих пор наша задача упрощалась тем, что мы имели дело с игрушечным html для единственного сообщения. В настоящем html тег <code>div</code> повторяется на разных уровнях, и нам надо извлечь только такие <code>div</code>, которым соответствует определенный класс. Также не будем забывать, что архив выгрузился в виде трех html-файлов, так что понадобится наше знание итераций в <code>purrr</code>. Пока пробуем на одном из них:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>archive_1 <span class="ot">&lt;-</span> antibarbari_archive[[<span class="dv">1</span>]]</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -778,14 +778,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Сколько всего слов на букву П в НФЭ?</p>
 </div>
 </div>
-<form name="form_30082" onsubmit="return validate_form_30082()" method="post">
-<input type="text" placeholder="" name="answer_30082">
+<form name="form_57894" onsubmit="return validate_form_57894()" method="post">
+<input type="text" placeholder="" name="answer_57894">
 <input type="submit" value="check">
-<div id="result_30082"></div>
+<div id="result_57894"></div>
 </form>
-<script>function validate_form_30082() {var x, text; var x = document.forms['form_30082']['answer_30082'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_30082').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_57894() {var x, text; var x = document.forms['form_57894']['answer_57894'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_57894').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_30082').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_57894').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </section>
@@ -903,7 +903,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(caesar, <span class="at">file =</span> <span class="st">"../data/caesar.Rdata"</span>)</span></code><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
-<p><em>Поздравляем, на этом закончился первый большой раздел нашего курса “Основы работы в R” 🎖. За восемь уроков вы познакомились с основными структурами данных в R, научились собирать и трансформировать данные, строить графики, писать функции и циклы, а также готовить html-отчеты о своих исследованиях. Впереди нас ждут методы анализа текстовых данных.</em></p>
+<p><em>Поздравляем, на этом закончился первый большой раздел нашего курса “Основы работы в R” 🎌. За восемь уроков вы познакомились с основными структурами данных в R, научились собирать и трансформировать данные, строить графики, писать функции и циклы, а также готовить html-отчеты о своих исследованиях. Впереди нас ждут методы анализа текстовых данных.</em></p>
 <p><img src="https://24.media.tumblr.com/16f8aa95bbcd604292a6147b369e4048/tumblr_mttd1z5I1s1r3wl1po1_500.gif" class="img-fluid"></p>
 
 
