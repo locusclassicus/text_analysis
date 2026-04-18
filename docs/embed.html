@@ -339,7 +339,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multivar.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Регрессионные модели с <code>tidymodels</code></span></span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Регрессионные модели: SVR</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -350,26 +350,32 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./rf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Случайный лес</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./multiclass.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Многоклассовая классификация</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Многоклассовая классификация (часть 2)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dnn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Глубокое обучение</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Глубокое обучение</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./shiny.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">Приложения Shiny</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">Приложения Shiny</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./llm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">LLM в обработке и анализе данных</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">LLM в обработке и анализе данных</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -819,7 +825,7 @@ window.Quarto = {
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["term1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["term2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["similarity"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rank"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"погода","2":"теплая","3":"0.8561921","4":"1"},{"1":"погода","2":"вильфанд","3":"0.8367655","4":"2"},{"1":"погода","2":"температура","3":"0.8329996","4":"3"},{"1":"погода","2":"снег","3":"0.8295598","4":"4"},{"1":"погода","2":"снега","3":"0.8286825","4":"5"},{"1":"погода","2":"градусов","3":"0.8157594","4":"6"},{"1":"погода","2":"похолодание","3":"0.8004774","4":"7"},{"1":"погода","2":"минус","3":"0.7962469","4":"8"},{"1":"погода","2":"температуры","3":"0.7956023","4":"9"},{"1":"погода","2":"гидрометцентра","3":"0.7938364","4":"10"},{"1":"спорт","2":"экспресс","3":"0.8436812","4":"1"},{"1":"спорт","2":"приводит","3":"0.7931397","4":"2"},{"1":"спорт","2":"слова","3":"0.7693421","4":"3"},{"1":"спорт","2":"посчитал","3":"0.7414804","4":"4"},{"1":"спорт","2":"карьеры","3":"0.7144062","4":"5"},{"1":"спорт","2":"спортсмена","3":"0.6854804","4":"6"},{"1":"спорт","2":"спортсмен","3":"0.6843053","4":"7"},{"1":"спорт","2":"спортсмены","3":"0.6725376","4":"8"},{"1":"спорт","2":"футболист","3":"0.6642379","4":"9"},{"1":"спорт","2":"выступления","3":"0.6607624","4":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["term1"],"name":[1],"type":["chr"],"align":["left"]},{"label":["term2"],"name":[2],"type":["chr"],"align":["left"]},{"label":["similarity"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rank"],"name":[4],"type":["int"],"align":["right"]}],"data":[{"1":"погода","2":"теплая","3":"0.8524272","4":"1"},{"1":"погода","2":"температура","3":"0.8392611","4":"2"},{"1":"погода","2":"вильфанд","3":"0.8329292","4":"3"},{"1":"погода","2":"снега","3":"0.8317449","4":"4"},{"1":"погода","2":"градусов","3":"0.8302939","4":"5"},{"1":"погода","2":"снег","3":"0.8148443","4":"6"},{"1":"погода","2":"минус","3":"0.8114473","4":"7"},{"1":"погода","2":"похолодание","3":"0.7889489","4":"8"},{"1":"погода","2":"гидрометцентра","3":"0.7858580","4":"9"},{"1":"погода","2":"температуры","3":"0.7816147","4":"10"},{"1":"спорт","2":"экспресс","3":"0.8650395","4":"1"},{"1":"спорт","2":"приводит","3":"0.7793213","4":"2"},{"1":"спорт","2":"слова","3":"0.7373646","4":"3"},{"1":"спорт","2":"посчитал","3":"0.7288803","4":"4"},{"1":"спорт","2":"карьеры","3":"0.7146330","4":"5"},{"1":"спорт","2":"спортсмены","3":"0.6938790","4":"6"},{"1":"спорт","2":"тренер","3":"0.6718689","4":"7"},{"1":"спорт","2":"болельщики","3":"0.6586599","4":"8"},{"1":"спорт","2":"спортсмена","3":"0.6527225","4":"9"},{"1":"спорт","2":"спортсмен","3":"0.6505545","4":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
