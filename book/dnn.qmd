@@ -66,6 +66,7 @@ use_virtualenv("r-keras3-env", required = TRUE)
 # проверяем
 py_config()
 ```
+
 ```{r}
 # Проверяем работу TensorFlow и Keras
 py_run_string("
@@ -313,7 +314,8 @@ prep(small_spec)
 ```{r}
 prep(small_spec)  |> 
   # 2 означает второй шаг рецепта
-  tidy(2)
+  tidy(2) |> 
+  print()
 ```
 
 ```{r}
@@ -360,7 +362,9 @@ onehot_rec
 ```
 
 ```{r}
-onehot_prep <- prep(onehot_rec)
+onehot_prep <- onehot_rec |> 
+  prep()
+
 onehot_prep
 ```
 
@@ -492,9 +496,10 @@ dense_model  |>
 ```
 
 ```{r}
-dense_model  |>  evaluate(
-  x = onehot_test,
-  y = class_test_onehot
+dense_model  |>  
+  evaluate(
+    x = onehot_test,
+    y = class_test_onehot
 )
 ```
 
