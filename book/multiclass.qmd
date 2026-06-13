@@ -813,23 +813,10 @@ top_terms  |>
 🎯 Цель: на основе корпуса [A Small Collection of British Fiction](https://github.com/computationalstylistics/A_Small_Collection_of_British_Fiction/) (28 произведений британской прозы конца XVIII — XIX веков) проанализировать стилистические особенности авторов и классифицировать тексты по авторам с применением фреймворка `{tidymodels}` в R. 📊 Ссылки на скачивание из репозитория курса ниже.
 
 
-📝 Что нужно сделать:
+📝 **Данные**:
 
-1️⃣ Загрузите и подготовьте корпус (тексты находятся в архиве [british_fiction](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/british_fiction.zip); метаданные — в файле [overview](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/overview.tsv)) 📂  
+Загрузите и подготовьте корпус (тексты находятся в архиве [british_fiction](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/british_fiction.zip); метаданные — в файле [overview](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/overview.tsv)).   
 
-2️⃣ Выполните предварительную обработку текста (токенизация, очистка, лемматизация/стемминг при необходимости) 🧹 
-
-3️⃣ Извлеките количественные лингвистические признаки для каждого текста (n-граммы, частотность stop-слов/служебных слов, длина предложений и слов, частота определённых частей речи и др.) 📐  
-
-4️⃣ Проведите разведывательный анализ 📈  
-
-5️⃣ Постройте модель для классификации произведений по авторам 🤖
-
-6️⃣ Используйте `{tidymodels}` для построения модели 🛠️
-  
-7️⃣ Визуализируйте результаты; по возможности объясните, какие признаки наиболее значимы для классификации 🖼️ 
-
-8️⃣ Интерпретируйте полученные выводы 🧠  
 
 📦 **Формат сдачи**:
 
