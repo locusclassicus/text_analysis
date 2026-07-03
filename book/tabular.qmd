@@ -48,13 +48,10 @@ class(curricula_tbl)
 -   при индексировании не превращается в вектор.
 
 
-::::{.callout-warning icon=false}
-Установите курс `swirl::install_course("Getting and Cleaning Data")`.  Загрузите библиотеку `library(swirl)`, запустите `swirl()`, выберите этот курс и пройдите из него урок 1 `Manipulating Data with dplyr`. При попытке загрузить урок 1 вы можете получить сообщение об ошибке. В таком случае установите версию курса из github, как указано [здесь](https://github.com/swirldev/swirl_courses/issues/260#issuecomment-192004132), или загрузите файл вручную, как указано [здесь](http://swirlstats.com/scn/getclean.html).
-::::
 
 ## Dplyr
 
-В уроке `{swirl}` выше вы уже немного познакомились с "грамматикой манипуляции данных", лежащей в основе [`dplyr`](https://dplyr.tidyverse.org/). Здесь об этом будет сказано подробнее. Эта грамматика предоставляет последовательный набор глаголов, которые помогают решать наиболее распространенные задачи манипулирования данными:
+В основе [`dplyr`](https://dplyr.tidyverse.org/) лежит "грамматика манипуляции данных". Эта грамматика предоставляет последовательный набор глаголов, которые помогают решать наиболее распространенные задачи манипулирования данными:
 
 -   `mutate()` добавляет новые переменные, которые являются функциями существующих переменных;
 -   `select()` выбирает переменные (столбцы) на основе их имен;
@@ -82,13 +79,9 @@ curricula_tbl |>
   arrange(-n)
 ```
 
-Теперь упражнения в `{swirl}`. Вам придется редактировать код, который предложит программа, так что сгруппируйтесь.
-
 ::::{.callout-warning icon=false}
-Запустите `swirl()`, выберите курс `Getting and Cleaning Data` и пройдите из него урок 2 `Grouping and Chaining with dplyr`.
+Для закрепления навыка можно выполнить (выборочно) интерактивные упражнения на отбор рядов <https://learnr-examples.shinyapps.io/ex-data-filter/#section-welcome>. Чуть сложнее задания на обобщение данных <https://learnr-examples.shinyapps.io/ex-data-summarise/>, там уже есть визуализации, о которых мы пока не говорили. Можете посмотреть по диагонали.
 ::::
-
-
 
 ## Опрятные данные
 
@@ -139,12 +132,6 @@ table4b |>
 Кроме того, в `dplyr` есть полезное семейство функций `_join`, позволяющих [объединять](https://r4ds.had.co.nz/relational-data.html) данные в различных таблицах. 
 
 ![[_Источник_.](https://r4ds.had.co.nz/relational-data.html?q=join#inner-join)](./images/joins.png)
-
-Дальше мы потренируемся с ними работать, но сначала пройдем урок `swirl`. Это достаточно сложный урок (снова понадобится редактировать скрипт), но он нам дальше здорово поможет. 
-
-::::{.callout-warning icon=false}
-Запустите `swirl()`, выберите курс `Getting and Cleaning Data` и пройдите из него урок 3 `Tidying Data with tidyr`.
-::::
 
 
 Прежде чем двигаться дальше, приведите в порядок table2, 3, 4a-4b, используя `dplyr` и `tidyr`.
@@ -228,7 +215,7 @@ curricula_joined |>
 - Создайте на своем компьютере файл `hw1.R`, отредактируйте его, используя заготовку ниже. 
 
 ```{r eval=FALSE}
-#devtools::install_github("ropensci/gutenbergr")
+#remotes::install_github("ropensci/gutenbergr")
 library(gutenbergr)
 library(tidyverse)
 
