@@ -158,7 +158,7 @@ table4b |>
 
 ```{r message=FALSE}
 curricula_tbl |> 
-  group_by(author, title) |> 
+  group_by(author) |> 
   summarise(n = n()) |> 
   arrange(-n) |> 
   print()

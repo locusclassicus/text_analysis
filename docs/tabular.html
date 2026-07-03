@@ -636,26 +636,25 @@ dbl (2): id, grade
 <p>У каких авторов больше всего произведений (во всех программах)?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>curricula_tbl <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(author, title) <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(author) <span class="sc">|&gt;</span> </span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n) <span class="sc">|&gt;</span> </span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,624 × 3
-# Groups:   author [461]
-   author          title                        n
-   &lt;chr&gt;           &lt;chr&gt;                    &lt;int&gt;
- 1 Горький М.      Мать                        51
- 2 Некрасов Н.А.   Кому на Руси жить хорошо    50
- 3 Пушкин А.С.     Евгений Онегин              49
- 4 Островский А.Н. Гроза                       48
- 5 Тургенев И.С.   Отцы и дети                 48
- 6 Гоголь Н.В.     Мертвые души                47
- 7 Грибоедов А.С.  Горе от ума                 47
- 8 Лермонтов М.Ю.  Герой нашего времени        46
- 9 Толстой Л.Н.    Война и мир                 46
-10 Толстой Л.Н.    Воскресение                 46
-# ℹ 1,614 more rows</code></pre>
+<pre><code># A tibble: 461 × 2
+   author              n
+   &lt;chr&gt;           &lt;int&gt;
+ 1 Пушкин А.С.      1039
+ 2 Горький М.        576
+ 3 Маяковский В.В.   484
+ 4 Некрасов Н.А.     425
+ 5 Лермонтов М.Ю.    373
+ 6 Толстой Л.Н.      285
+ 7 &lt;NA&gt;              261
+ 8 Чехов А.П.        212
+ 9 Есенин С.А.       186
+10 Блок А.А.         182
+# ℹ 451 more rows</code></pre>
 </div>
 </div>
 <p>Какие произведения упоминаются в программах чаще всего?</p>
