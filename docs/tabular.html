@@ -728,45 +728,7 @@ dbl (2): id, grade
 <section id="домашнее-задание" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="домашнее-задание"><span class="header-section-number">2.9</span> Домашнее задание ✍️</h2>
 <ul>
-<li><p>Создайте учетную запись GitHub, если у вас ее нет: <a href="https://github.com/" class="uri">https://github.com/</a></p></li>
-<li><p>Примите задание по ссылке: <a href="https://classroom.github.com/a/kZtVp96N" class="uri">https://classroom.github.com/a/kZtVp96N</a>. Если вы не видите себя в списке студентов, напишите преподавателю.</p></li>
-<li><p>После этого GitHub создаст репозиторий для сдачи домашнего задания.</p></li>
-<li><p>Создайте на своем компьютере файл <code>hw1.R</code>, отредактируйте его, используя заготовку ниже.</p></li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#remotes::install_github("ropensci/gutenbergr")</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>works <span class="ot">&lt;-</span> <span class="fu">gutenberg_works</span>()</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># В каждом пункте используйте оператор pipe, не сохраняйте промежуточные результаты!</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># (1) Отберите ряды, в которых gutenberg_author_id равен 65 или 410;</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># после этого выберите два столбца: author, title</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>my_data <span class="ot">&lt;-</span> works <span class="sc">|&gt;</span> </span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ваш код здесь</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co"># (2) Используйте функцию separate(), чтобы разделить </span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co"># столбец с именем и фамилией на два новых: author, name. </span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Удалите столбец name</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>my_data2 <span class="ot">&lt;-</span> my_data <span class="sc">|&gt;</span></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ваш код здесь</span></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="co"># (3) Используйте group_by() и summarise(), чтобы узнать,</span></span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a><span class="co"># сколько произведений Шекспира и Марлоу хранится в библиотеке Gutenberg</span></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>my_data3 <span class="ot">&lt;-</span> my_data2 <span class="sc">|&gt;</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ваш код здесь</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ul>
-<li>После этого любым способом загрузите свой файл в репозиторий. Если умеете в git, хорошо. Если нет, используйте кнопку <code>Upload files</code>.</li>
-</ul>
-<p><img src="./images/classroom.png" class="img-fluid"></p>
-<ul>
-<li><p>Не меняйте имена переменных! Проверка будет <strong>автоматической</strong>.</p></li>
-<li><p>Для пересчета года в век используйте следующую формулу: <code>(deathdate - 1) %/% 100 + 1</code>, где <code>%/%</code> – целочисленное деление.</p></li>
-<li><p>Дедлайн: 25/09/2025 21:00.</p></li>
-<li><p>Оценка: 0/1.</p></li>
+<li>В чате курса.</li>
 </ul>
 
 
