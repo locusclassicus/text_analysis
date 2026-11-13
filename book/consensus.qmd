@@ -639,6 +639,19 @@ stylo(network = TRUE,
       gui=FALSE)
 ```
 
+```{r include=FALSE}
+# таблицы ребер и узлов нужны для следующих блоков: создаем их, если их нет
+if (length(list.files(pattern = "_EDGES\\.csv$")) == 0) {
+  stylo(network = TRUE, 
+        frequencies = galbraith, 
+        network.type = "undirected",
+        network.tables = "both",
+        linked.neighbors = 3,
+        edge.weights = "linear",
+        gui = FALSE)
+}
+```
+
 Теперь в рабочей директории должны были появиться два файла `.csv`.
 
 ```{r}

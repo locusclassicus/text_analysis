@@ -465,7 +465,7 @@ window.Quarto = {
 <li><p><em>случайный лес</em>: комбинирует предсказания множества деревьев для повышения точности и устойчивости.</p></li>
 </ol>
 <p>Кроме того, существуют методы регуляризации линейных моделей, позволяющие существенно улучшить их качество на данных большой размерности (т.е. с большим количеством предкторов). К таким алгоритмам относятся <em>гребневая регрессия</em> и метод <em>лассо</em>. О них мы поговорим в одном из следующих уроков.</p>
-<p>О математической стороне дела см. <span class="citation" data-cites="хасти2017">Г. Джеймс, Д. Уиттон, Т. Хасти, Р. Тибришани (<a href="#ref-хасти2017" role="doc-biblioref">2017 г.</a>)</span>. В этом уроке мы начнем работать с различными регрессионными алгоритмами, используя библиотеку <code>{tidymodels}</code>.</p>
+<p>О математической стороне дела см. <span class="citation" data-cites="хасти2017">Г. Джеймс, Д. Уиттон, Т. Хасти, Р. Тибришани (<a href="references.html#ref-хасти2017" role="doc-biblioref">2017 г.</a>)</span>. В этом уроке мы начнем работать с различными регрессионными алгоритмами, используя библиотеку <code>{tidymodels}</code>.</p>
 </section>
 <section id="библиотека-tidymodels" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="библиотека-tidymodels"><span class="header-section-number">24.2</span> Библиотека <code>tidymodels</code></h2>
@@ -488,7 +488,7 @@ window.Quarto = {
 </section>
 <section id="данные" class="level2" data-number="24.3">
 <h2 data-number="24.3" class="anchored" data-anchor-id="данные"><span class="header-section-number">24.3</span> Данные</h2>
-<p>Датасет для этого урока хранит данные о названиях, рейтингах, жанре, цене и числе отзывов на некоторые книги с Amazon. Мы попробуем построить регресионную модель, которая будет предсказывать цену книги. Скачайте данные по <a href="https://github.com/locusclassicus/text_analysis_2024/blob/main/files/AmazonBooks.xlsx">ссылке</a> и прочитайте в окружение.</p>
+<p>Датасет для этого урока хранит данные о названиях, рейтингах, жанре, цене и числе отзывов на некоторые книги с Amazon. Мы попробуем построить регресионную модель, которая будет предсказывать цену книги. Скачайте данные по <a href="https://github.com/locusclassicus/text_analysis/blob/main/files/AmazonBooks.xlsx">ссылке</a> и прочитайте в окружение.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>books  <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"../files/AmazonBooks.xlsx"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>books</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
@@ -13434,7 +13434,7 @@ Computational engine: LiblineaR </code></pre>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-хасти2017" class="csl-entry" role="listitem">
 Г. Джеймс, Д. Уиттон, Т. Хасти, Р. Тибришани. 2017 г. <em>Введение в статистическое обучение с примерами на языке R</em>. ДМК.
 </div>

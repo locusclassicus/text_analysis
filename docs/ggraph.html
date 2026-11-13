@@ -425,9 +425,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tudors_g <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(tudors)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tudors_g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3dc7ca2 DN-- 25 35 -- 
+<pre><code>IGRAPH 73f4aeb DN-- 25 35 -- 
 + attr: name (v/c), relationship (e/c)
-+ edges from 3dc7ca2 (vertex names):
++ edges from 73f4aeb (vertex names):
  [1] Henry VII          -&gt;Elizabeth of York     
  [2] Arthur Tudor       -&gt;Catharine of Aragon   
  [3] Henry VIII         -&gt;Catharine of Aragon   
@@ -466,9 +466,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(tudors_g)<span class="sc">$</span>degree <span class="ot">&lt;-</span> d</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tudors_g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3dc7ca2 DN-- 25 35 -- 
+<pre><code>IGRAPH 73f4aeb DN-- 25 35 -- 
 + attr: name (v/c), degree (v/n), relationship (e/c)
-+ edges from 3dc7ca2 (vertex names):
++ edges from 73f4aeb (vertex names):
  [1] Henry VII          -&gt;Elizabeth of York     
  [2] Arthur Tudor       -&gt;Catharine of Aragon   
  [3] Henry VIII         -&gt;Catharine of Aragon   
@@ -952,7 +952,7 @@ Ignoring unknown parameters: `label.size`</code></pre>
 <h2 data-number="19.10" class="anchored" data-anchor-id="домашнее-задание"><span class="header-section-number">19.10</span> Домашнее задание</h2>
 <p>Прочитайте в окружение размеченный текст “Записок Цезаря”, с которым мы работали в одном из предыдущих уроков. NB: Можно разметить другой текст (или взять готовый conllu), если не хотите работать с латынью 😭.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>caesar <span class="ot">&lt;-</span> <span class="fu">udpipe_read_conllu</span>(<span class="st">"https://github.com/locusclassicus/text_analysis_2024/raw/main/files/bg_latinpipe.conllu"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>caesar <span class="ot">&lt;-</span> <span class="fu">udpipe_read_conllu</span>(<span class="st">"https://github.com/locusclassicus/text_analysis/raw/main/files/bg_latinpipe.conllu"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Функция <code>cooccurence()</code> из пакета <code>udpipe</code> позволяет выяснить, сколько раз некий термин встречается совместно с другим термином, например:</p>
 <ul>

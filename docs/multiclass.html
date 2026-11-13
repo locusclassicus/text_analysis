@@ -422,7 +422,7 @@ window.Quarto = {
 </header>
 
 
-<p>Многоклассовая классификация может использоваться для определения автора, жанра, тематики или эмоциональной тональности текста. В этом уроке мы научимся классифицировать тексты по автору, воспользовавшись <a href="https://github.com/JoannaBy/RussianNovels">учебным датасетом русской прозы</a>.В формате zip можно забрать <a href="https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/russian_corpus.zip">здесь</a>.</p>
+<p>Многоклассовая классификация может использоваться для определения автора, жанра, тематики или эмоциональной тональности текста. В этом уроке мы научимся классифицировать тексты по автору, воспользовавшись <a href="https://github.com/JoannaBy/RussianNovels">учебным датасетом русской прозы</a>.В формате zip можно забрать <a href="https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/russian_corpus.zip">здесь</a>.</p>
 <p>Основные задачи этого урока:</p>
 <ul>
 <li>Ознакомиться с методом <em>логистической регрессии</em> и понятием <em>регуляризации</em>, а также научиться применять для решения задач классификации методы SVM, Random Forest и другие.</li>
@@ -735,7 +735,7 @@ predictor: 500</code></pre>
 <h2 data-number="27.5" class="anchored" data-anchor-id="методы-снижения-размерности"><span class="header-section-number">27.5</span> Методы снижения размерности</h2>
 <section id="pca-для-разведывательного-анализа" class="level3" data-number="27.5.1">
 <h3 data-number="27.5.1" class="anchored" data-anchor-id="pca-для-разведывательного-анализа"><span class="header-section-number">27.5.1</span> PCA для разведывательного анализа</h3>
-<p>PCA (Principal Component Analysis) — это один из основных и наиболее понятных подходов к уменьшению размерности данных. Он относится к линейным методам обучения без учителя, что означает, что для его работы не требуется информация о целевых переменных (например, метках классов). Метод создаёт новые переменные (главные компоненты) — линейные комбинации исходных признаков, которые максимизируют дисперсию данных. Первые несколько компонентов содержат основную информацию (вариативность) из всего набора признаков. Подробнее о нем см. <a href="https://locusclassicus.github.io/text_analysis_2024/cluster.html#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82">урок 15</a>.</p>
+<p>PCA (Principal Component Analysis) — это один из основных и наиболее понятных подходов к уменьшению размерности данных. Он относится к линейным методам обучения без учителя, что означает, что для его работы не требуется информация о целевых переменных (например, метках классов). Метод создаёт новые переменные (главные компоненты) — линейные комбинации исходных признаков, которые максимизируют дисперсию данных. Первые несколько компонентов содержат основную информацию (вариативность) из всего набора признаков. Подробнее о нем см. <a href="https://locusclassicus.github.io/text_analysis/cluster.html#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82">урок 15</a>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pca_trained <span class="ot">&lt;-</span> pca_rec <span class="sc">|&gt;</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">prep</span>(data_train) </span>
@@ -1366,7 +1366,7 @@ Computational engine: LiblineaR </code></pre>
 <p>📚 Оценка 0–10</p>
 <p>🎯 Цель: на основе корпуса <a href="https://github.com/computationalstylistics/A_Small_Collection_of_British_Fiction/">A Small Collection of British Fiction</a> (28 произведений британской прозы конца XVIII — XIX веков) проанализировать стилистические особенности авторов и классифицировать тексты по авторам с применением фреймворка <code>{tidymodels}</code> в R. 📊 Ссылки на скачивание из репозитория курса ниже.</p>
 <p>📝 <strong>Данные</strong>:</p>
-<p>Загрузите и подготовьте корпус (тексты находятся в архиве <a href="https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/british_fiction.zip">british_fiction</a>; метаданные — в файле <a href="https://github.com/locusclassicus/text_analysis_2024/blob/main/files/overview.tsv">overview</a>).</p>
+<p>Загрузите и подготовьте корпус (тексты находятся в архиве <a href="https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/british_fiction.zip">british_fiction</a>; метаданные — в файле <a href="https://github.com/locusclassicus/text_analysis/blob/main/files/overview.tsv">overview</a>).</p>
 <p>📦 <strong>Формат сдачи</strong>:</p>
 <ul>
 <li>Отчёт в формате HTML отправляете через форму: <a href="https://forms.gle/QK1WbPSUgFy6JsBE6" class="uri">https://forms.gle/QK1WbPSUgFy6JsBE6</a></li>

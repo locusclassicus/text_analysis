@@ -25,6 +25,16 @@ quarto render                # вся книга
 
 Результат попадает в `docs/`. После коммита и `git push` GitHub Pages обновляет сайт.
 
+Глава «Глубокое обучение» (`dnn.qmd`) заморожена (`freeze: true`): при сборке всей книги ее код не выполняется, а результаты берутся из `book/_freeze/dnn/`. Чтобы обновить главу, нужны Python с TensorFlow и Keras и скачанный набор AG News (`textdata::dataset_ag_news()` в интерактивной сессии R):
+
+```bash
+source ~/.virtualenvs/r-keras3-env/bin/activate
+cd book
+quarto render dnn.qmd   # пересчитывает главу и обновляет book/_freeze/dnn
+```
+
+После этого закоммитьте `book/_freeze/` вместе с `docs/`.
+
 ## Главы и шпаргалки
 
 | Глава | Шпаргалка |

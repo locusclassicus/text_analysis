@@ -403,9 +403,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="от-json-к-таблице" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="от-json-к-таблице"><span class="header-section-number">5.2</span> От JSON к таблице</h2>
-<p>Загрузим небольшой файл <code>TBBT.json</code>, хранящий данные о сериале “Теория большого взрыва” (<a href="https://gist.github.com/sahithyandev/540c82170a19f97deef9e23796083f01">источник</a>). Скачать лучше из репозитория курса <a href="https://github.com/locusclassicus/text_analysis_2024/blob/main/files/TBBT.json">ссылка</a>.</p>
+<p>Загрузим небольшой файл <code>TBBT.json</code>, хранящий данные о сериале “Теория большого взрыва” (<a href="https://gist.github.com/sahithyandev/540c82170a19f97deef9e23796083f01">источник</a>). Скачать лучше из репозитория курса <a href="https://github.com/locusclassicus/text_analysis/blob/main/files/TBBT.json">ссылка</a>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/locusclassicus/text_analysis_2024/refs/heads/main/files/TBBT.json"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"https://raw.githubusercontent.com/locusclassicus/text_analysis/refs/heads/main/files/TBBT.json"</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tbbt <span class="ot">&lt;-</span> <span class="fu">read_json</span>(path)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Функция <code>read_json()</code> вернула нам список со следующими элементами:</p>

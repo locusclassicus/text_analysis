@@ -413,7 +413,7 @@ div.csl-indent {
 </header>
 
 
-<p>XML (от англ. eXtensible Markup Language) — расширяемый язык разметки. Слово “расширяемый” означает, что список тегов не зафиксирован раз и навсегда: пользователи могут вводить свои собственные теги и создавать так называемые <em>настраиваемые языки разметки</em> <span class="citation" data-cites="xml2004">(<a href="#ref-xml2004" role="doc-biblioref">Холзнер 2004 г., 29</a>)</span>. Один из таких настраиваемых языков – это TEI (Text Encoding Initiative), о котором будет сказано дальше.</p>
+<p>XML (от англ. eXtensible Markup Language) — расширяемый язык разметки. Слово “расширяемый” означает, что список тегов не зафиксирован раз и навсегда: пользователи могут вводить свои собственные теги и создавать так называемые <em>настраиваемые языки разметки</em> <span class="citation" data-cites="xml2004">(<a href="references.html#ref-xml2004" role="doc-biblioref">Холзнер 2004 г., 29</a>)</span>. Один из таких настраиваемых языков – это TEI (Text Encoding Initiative), о котором будет сказано дальше.</p>
 <p>Для работы нам понадобятся следующие библиотеки:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -650,7 +650,7 @@ div.csl-indent {
 </section>
 <section id="разметка-tei" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="разметка-tei"><span class="header-section-number">6.2</span> Разметка TEI</h2>
-<p>TEI (Text Encoding Initiative) — специализированный язык разметки на основе XML, разработанный как средство формального кодирования наиболее значимых текстологических свойств документа: физических параметров рукописи, критического аппарата, лингвистической информации, выходных данных, сведений об авторе, обстоятельствах публикации и первоисточнике <span class="citation" data-cites="skorinkin2016">(<a href="#ref-skorinkin2016" role="doc-biblioref">Скоринкин 2016 г.</a>)</span>. TEI появился в 1987 г. и в наши дни стал де-факто стандартом для создания цифровых гуманитарных ресурсов.</p>
+<p>TEI (Text Encoding Initiative) — специализированный язык разметки на основе XML, разработанный как средство формального кодирования наиболее значимых текстологических свойств документа: физических параметров рукописи, критического аппарата, лингвистической информации, выходных данных, сведений об авторе, обстоятельствах публикации и первоисточнике <span class="citation" data-cites="skorinkin2016">(<a href="references.html#ref-skorinkin2016" role="doc-biblioref">Скоринкин 2016 г.</a>)</span>. TEI появился в 1987 г. и в наши дни стал де-факто стандартом для создания цифровых гуманитарных ресурсов.</p>
 <p>Основная задача структурированной разметки — формальное эксплицитное представление некоторых свойств документа, заложенных в нем имплицитно. Например, для человека очевидно, где в тексте романа кончается одна часть и начинается другая, какие герои упоминаются в той или иной главе, какие реплики кем произнесены. Однако для машины ничего из этого не является «очевидным» — электронный текст без разметки остается не более чем цепочкой символов.</p>
 <p>Большая часть размеченных литературных корпусов хранится именно в формате XML. Это очень удобно, и вот почему: с помощью тегов XML мы можем достать из документа именно то, что нам интересно: определенную главу, речи конкретных персонажей, слова на иностранных языках и т.п.</p>
 <p>Использование TEI обеспечивает:</p>
@@ -854,8 +854,8 @@ div.csl-indent {
 <span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>acts <span class="sc">|&gt;</span> </span>
 <span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(<span class="dv">6</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Действие третье" "Действие второе" "Действие второе" "Действие второе"
-[5] "Действие первое" "Действие первое"</code></pre>
+<pre><code>[1] "Действие третье"    "Действие третье"    "Действие четвертое"
+[4] "Действие третье"    "Действие четвертое" "Действие первое"   </code></pre>
 </div>
 </div>
 <p>Нам осталось объединить все векторы в одну таблицу.</p>
@@ -871,23 +871,23 @@ div.csl-indent {
 <span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">6</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>  gt<span class="sc">::</span><span class="fu">gt</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="tktualqico" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tktualqico table {
+<div id="ydeaslippk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ydeaslippk table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#tktualqico thead, #tktualqico tbody, #tktualqico tfoot, #tktualqico tr, #tktualqico td, #tktualqico th {
+#ydeaslippk thead, #ydeaslippk tbody, #ydeaslippk tfoot, #ydeaslippk tr, #ydeaslippk td, #ydeaslippk th {
   border-style: none;
 }
 
-#tktualqico p {
+#ydeaslippk p {
   margin: 0;
   padding: 0;
 }
 
-#tktualqico .gt_table {
+#ydeaslippk .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -913,12 +913,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#tktualqico .gt_caption {
+#ydeaslippk .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#tktualqico .gt_title {
+#ydeaslippk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -930,7 +930,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#tktualqico .gt_subtitle {
+#ydeaslippk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -942,7 +942,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#tktualqico .gt_heading {
+#ydeaslippk .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -954,13 +954,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#tktualqico .gt_bottom_border {
+#ydeaslippk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#tktualqico .gt_col_headings {
+#ydeaslippk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -975,7 +975,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#tktualqico .gt_col_heading {
+#ydeaslippk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -995,7 +995,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#tktualqico .gt_column_spanner_outer {
+#ydeaslippk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1007,15 +1007,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#tktualqico .gt_column_spanner_outer:first-child {
+#ydeaslippk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#tktualqico .gt_column_spanner_outer:last-child {
+#ydeaslippk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#tktualqico .gt_column_spanner {
+#ydeaslippk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1027,11 +1027,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#tktualqico .gt_spanner_row {
+#ydeaslippk .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#tktualqico .gt_group_heading {
+#ydeaslippk .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1057,7 +1057,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#tktualqico .gt_empty_group_heading {
+#ydeaslippk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1072,15 +1072,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#tktualqico .gt_from_md > :first-child {
+#ydeaslippk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#tktualqico .gt_from_md > :last-child {
+#ydeaslippk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#tktualqico .gt_row {
+#ydeaslippk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1099,7 +1099,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#tktualqico .gt_stub {
+#ydeaslippk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1112,7 +1112,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#tktualqico .gt_stub_row_group {
+#ydeaslippk .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1126,15 +1126,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#tktualqico .gt_row_group_first td {
+#ydeaslippk .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#tktualqico .gt_row_group_first th {
+#ydeaslippk .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#tktualqico .gt_summary_row {
+#ydeaslippk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1144,16 +1144,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#tktualqico .gt_first_summary_row {
+#ydeaslippk .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#tktualqico .gt_first_summary_row.thick {
+#ydeaslippk .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#tktualqico .gt_last_summary_row {
+#ydeaslippk .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1163,7 +1163,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#tktualqico .gt_grand_summary_row {
+#ydeaslippk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1173,7 +1173,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#tktualqico .gt_first_grand_summary_row {
+#ydeaslippk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1183,7 +1183,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#tktualqico .gt_last_grand_summary_row_top {
+#ydeaslippk .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1193,11 +1193,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#tktualqico .gt_striped {
+#ydeaslippk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#tktualqico .gt_table_body {
+#ydeaslippk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1206,7 +1206,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#tktualqico .gt_footnotes {
+#ydeaslippk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1220,7 +1220,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#tktualqico .gt_footnote {
+#ydeaslippk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1229,7 +1229,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#tktualqico .gt_sourcenotes {
+#ydeaslippk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1243,7 +1243,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#tktualqico .gt_sourcenote {
+#ydeaslippk .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1251,72 +1251,72 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#tktualqico .gt_left {
+#ydeaslippk .gt_left {
   text-align: left;
 }
 
-#tktualqico .gt_center {
+#ydeaslippk .gt_center {
   text-align: center;
 }
 
-#tktualqico .gt_right {
+#ydeaslippk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#tktualqico .gt_font_normal {
+#ydeaslippk .gt_font_normal {
   font-weight: normal;
 }
 
-#tktualqico .gt_font_bold {
+#ydeaslippk .gt_font_bold {
   font-weight: bold;
 }
 
-#tktualqico .gt_font_italic {
+#ydeaslippk .gt_font_italic {
   font-style: italic;
 }
 
-#tktualqico .gt_super {
+#ydeaslippk .gt_super {
   font-size: 65%;
 }
 
-#tktualqico .gt_footnote_marks {
+#ydeaslippk .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#tktualqico .gt_asterisk {
+#ydeaslippk .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#tktualqico .gt_indent_1 {
+#ydeaslippk .gt_indent_1 {
   text-indent: 5px;
 }
 
-#tktualqico .gt_indent_2 {
+#ydeaslippk .gt_indent_2 {
   text-indent: 10px;
 }
 
-#tktualqico .gt_indent_3 {
+#ydeaslippk .gt_indent_3 {
   text-indent: 15px;
 }
 
-#tktualqico .gt_indent_4 {
+#ydeaslippk .gt_indent_4 {
   text-indent: 20px;
 }
 
-#tktualqico .gt_indent_5 {
+#ydeaslippk .gt_indent_5 {
   text-indent: 25px;
 }
 
-#tktualqico .katex-display {
+#ydeaslippk .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#tktualqico div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ydeaslippk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1488,7 +1488,7 @@ div.csl-indent {
 [18] "Attendez. Я нынче же поговорю Lise (la femme du jeune Болконский)."                                                                                                                                                                                                                                                                                                                                                                                                                                                     </code></pre>
 </div>
 </div>
-<p>Подбробнее о структуре XML документов и способах работы с ними вы можете прочитать в книгах: <span class="citation" data-cites="nolan2014">(<a href="#ref-nolan2014" role="doc-biblioref">Nolan и Lang 2014 г.</a>)</span> и <span class="citation" data-cites="xml2004">(<a href="#ref-xml2004" role="doc-biblioref">Холзнер 2004 г.</a>)</span>.</p>
+<p>Подбробнее о структуре XML документов и способах работы с ними вы можете прочитать в книгах: <span class="citation" data-cites="nolan2014">(<a href="references.html#ref-nolan2014" role="doc-biblioref">Nolan и Lang 2014 г.</a>)</span> и <span class="citation" data-cites="xml2004">(<a href="references.html#ref-xml2004" role="doc-biblioref">Холзнер 2004 г.</a>)</span>.</p>
 </section>
 <section id="видео" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="видео"><span class="header-section-number">6.5</span> Видео</h2>
@@ -1520,7 +1520,7 @@ div.csl-indent {
 <p>На выполнение задания дается две недели (до 3 ноября 23:59).</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-nolan2014" class="csl-entry" role="listitem">
 Nolan, D., и D. T. Lang. 2014 г. <em>XML and Web Technologies for Data Science with R</em>. Springer.
 </div>
