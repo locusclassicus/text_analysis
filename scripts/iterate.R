@@ -642,7 +642,7 @@ pastries_from_json[[1]]$sweet
 # чтобы не помещать длинную ссылку непосредственно
 # внутрь функции read_json().
 
-path <- "https://raw.githubusercontent.com/locusclassicus/text_analysis_2024/refs/heads/main/files/TBBT.json"
+path <- "https://raw.githubusercontent.com/locusclassicus/text_analysis/refs/heads/main/files/TBBT.json"
 
 
 # ------------------------------------------------------------

@@ -1,4 +1,4 @@
-url <- "https://github.com/locusclassicus/text_analysis_2024/raw/main/files/manual_title_subset.tsv"
+url <- "https://github.com/locusclassicus/text_analysis/raw/main/files/manual_title_subset.tsv"
 download.file(url, destfile = "../files/manual_title_subset.tsv")
 
 # прежде всего избавимся от лишних столбцов 
