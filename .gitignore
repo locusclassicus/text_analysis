@@ -1,0 +1,16 @@
+.Rproj.user
+.Rhistory
+.Ruserdata
+.DS_store
+
+/.quarto/
+
+**/*.quarto_ipynb
+
+# большие данные мастер-класса по векторам (не для GitHub)
+files/embeddings/
+.DS_Store
+
+# локальные инструкции для агентов
+AGENTS.md
+.agents/

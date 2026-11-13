@@ -16,7 +16,9 @@ library(future) # для параллельных вычислений
 
 [Источник](https://www.kaggle.com/datasets/shanegerami/ai-vs-human-text/data).
 
-```{r message=FALSE}
+Из исходного датасета мы взяли случайную выборку в 20 000 текстов:
+
+```{r eval=FALSE}
 set.seed(18042026)
 texts <- read_csv("../files/AI_human.csv") |> 
   mutate(generated = as.factor(generated)) |> 
@@ -24,7 +26,19 @@ texts <- read_csv("../files/AI_human.csv") |>
 ```
 
 ```{r echo=FALSE, eval=FALSE}
-save(texts, file = "..//files/AI_texts.Rdata")
+save(texts, file = "../files/AI_texts.Rdata")
+```
+
+Чтобы у всех были одни и те же тексты, скачайте готовую выборку в формате `.Rdata` [по ссылке](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/AI_texts.Rdata) (около 15 Мб).
+
+```{r eval=FALSE}
+url <- "https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/AI_texts.Rdata"
+download.file(url, destfile = "AI_texts.Rdata")
+```
+
+```{r}
+# у вас будет другой путь
+load("../files/AI_texts.Rdata")
 ```
 
 
