@@ -970,12 +970,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Создайте проект Quarto под контролем версий. В меню идем <code>File</code> -&gt; <code>New Project</code> -&gt; <code>New Directory</code> -&gt; <code>Quarto Website</code>. Поставьте галочку, чтобы проект был под контролем версий (это равноценно команде <code>git init</code>).</p>
 <p><img src="images/quarto_start.png" class="img-fluid"></p>
 <p>У вашего сайта пока всего две страницы, About и Home. Загляните в файл <code>_quarto.yml</code>, чтобы в этом убедиться. Также отредактируйте файл <code>_quarto.yml</code>, указав путь для рендеринга html-файлов.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode yml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co">  # вот эту строчку надо дописать</span></span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p>Чтобы получить html, надо выполнить команду:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quarto)</span>
