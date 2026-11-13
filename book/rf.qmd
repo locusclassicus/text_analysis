@@ -476,17 +476,17 @@ xgb_fit <- workflow() |>
   last_fit(split = texts_split)
 ```
 
-```{r}
-xgb_fit |> 
-  collect_metrics()
-```
-
 ```{r eval=FALSE, echo=FALSE}
 save(xgb_fit, file = "../data/xgb_fit.Rdata")
 ```
 
 ```{r echo=FALSE}
 load("../data/xgb_fit.Rdata")
+```
+
+```{r}
+xgb_fit |> 
+  collect_metrics()
 ```
 
 
