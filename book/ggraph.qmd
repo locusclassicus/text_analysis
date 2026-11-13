@@ -4,6 +4,8 @@
 
 В качестве основы мы возьмем небольшой датасет "Тюдоры" из пакета `{historydata}`. 
 
+![Генрих VIII](images/henry.jpg){width=160}
+
 ```{r message=FALSE}
 # install.packages('historydata', repos = c('https://ropensci.r-universe.dev'))
 library(historydata)

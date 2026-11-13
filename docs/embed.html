@@ -638,7 +638,7 @@ window.Quarto = {
 <p>Для получения новой матрицы применяется следующая процедура. Сначала для матрицы <span class="math inline">\(A_r\)</span> строится ее сингулярное разложение (Singular Value Decomposition) по формуле: <span class="math inline">\(A = UΣV^t\)</span> . Иными словами, одна матрица представляется в виде произведения трех других, из которых средняя - диагональная.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://pictures.s3.yandex.net/resources/3.3.7_skhema_5_1679315403.png" class="img-fluid figure-img"></p>
+<p><img src="images/svd.png" class="img-fluid figure-img"></p>
 <figcaption>Источник: Яндекс Практикум</figcaption>
 </figure>
 </div>
@@ -815,22 +815,17 @@ window.Quarto = {
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min_count =</span> <span class="dv">5</span>,</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>                  <span class="at">threads =</span> <span class="dv">1</span>) <span class="co"># при нескольких потоках результат не воспроизводится</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
-</div>
-</div>
 <p>Наша модель содержит эмбеддинги для слов; посмотрим на матрицу.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>emb <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(model)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(emb)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>emb <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(model)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(emb)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6305  100</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, <span class="fu">c</span>(<span class="st">"погода"</span>, <span class="st">"спорт"</span>), <span class="at">type =</span> <span class="st">"nearest"</span>, <span class="at">top_n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model, <span class="fu">c</span>(<span class="st">"погода"</span>, <span class="st">"спорт"</span>), <span class="at">type =</span> <span class="st">"nearest"</span>, <span class="at">top_n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -857,66 +852,66 @@ window.Quarto = {
 <h3 data-number="11.5.1" class="anchored" data-anchor-id="reticulate"><span class="header-section-number">11.5.1</span> Reticulate</h3>
 <p>Для работы с трансформерами понадобится Python. Создадим виртуальное окружение, которое нужно для корректной работы с пакетом <code>{text}</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"/usr/bin/python3"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reticulate)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use_python</span>(<span class="st">"/usr/bin/python3"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># python:         /usr/bin/python3</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/config-3.9-darwin/libpython3.9.dylib</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pythonhome:     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9:/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># version:        3.9.6 (default, Feb  3 2024, 15:58:27)  [Clang 15.0.0 (clang-1500.3.9.4)]</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co"># numpy:          /Users/olga/Library/Python/3.9/lib/python/site-packages/numpy</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co"># numpy_version:  1.23.0</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: Python version was forced by use_python() function</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_config</span>()</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># python:         /usr/bin/python3</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># libpython:      /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/config-3.9-darwin/libpython3.9.dylib</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pythonhome:     /Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9:/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># version:        3.9.6 (default, Feb  3 2024, 15:58:27)  [Clang 15.0.0 (clang-1500.3.9.4)]</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># numpy:          /Users/olga/Library/Python/3.9/lib/python/site-packages/numpy</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="co"># numpy_version:  1.23.0</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">NOTE</span><span class="co">: Python version was forced by use_python() function</span></span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_eval</span>(<span class="st">"1+1"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_eval</span>(<span class="st">"1+1"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Для работы понадобятся модули <code>nltk</code> и <code>transformers</code>. Проверьте в терминале, установлены ли они, и, если надо, установите.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># проверить </span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>c <span class="st">"import nltk; print('nltk version:', nltk.__version__)"</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>c <span class="st">"import transformers; print('transformers version:', transformers.__version__)"</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># установить</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>m pip install nltk transformers</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># проверить </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>c <span class="st">"import nltk; print('nltk version:', nltk.__version__)"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>c <span class="st">"import transformers; print('transformers version:', transformers.__version__)"</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># установить</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>usr<span class="sc">/</span>bin<span class="sc">/</span>python3 <span class="sc">-</span>m pip install nltk transformers</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Скачайте необходимые данные для NLTK.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_run_string</span>(<span class="st">"</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="st">import nltk</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('punkt')</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('punkt_tab')</span></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('stopwords')</span></span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('wordnet')</span></span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('omw-1.4')</span></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">py_run_string</span>(<span class="st">"</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="st">import nltk</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('punkt')</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('punkt_tab')</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('stopwords')</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('wordnet')</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="st">nltk.download('omw-1.4')</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="st">"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="эмбеддинги" class="level3" data-number="11.5.2">
 <h3 data-number="11.5.2" class="anchored" data-anchor-id="эмбеддинги"><span class="header-section-number">11.5.2</span> Эмбеддинги</h3>
 <p>Получаем эмбеддинги с помощью <code>textEmbed()</code>. Это долго (для нашего датасета около двух часов). Для пробы берем лишь несколько новостей.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">18112025</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>news_sample <span class="ot">&lt;-</span> news_2019 <span class="sc">|&gt;</span> </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(topic <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Экономика"</span>, <span class="st">"Культура"</span>, <span class="st">"Спорт"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">25</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">18112025</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>news_sample <span class="ot">&lt;-</span> news_2019 <span class="sc">|&gt;</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(topic <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Экономика"</span>, <span class="st">"Культура"</span>, <span class="st">"Спорт"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">25</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Во время обучения вы увидите предупреждение о non-ASCII символах. Если ваша модель обучена на русском или многоязычная, это предупреждение можно игнорировать.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>emb <span class="ot">&lt;-</span> <span class="fu">textEmbed</span>(</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">texts =</span> news_sample<span class="sc">$</span>text,</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># или другая модель</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"cointegrated/rubert-tiny2"</span>,  </span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># по умолчанию </span></span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">layers =</span> <span class="sc">-</span><span class="dv">2</span>,     </span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">remove_non_ascii =</span> <span class="cn">FALSE</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>emb <span class="ot">&lt;-</span> <span class="fu">textEmbed</span>(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">texts =</span> news_sample<span class="sc">$</span>text,</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># или другая модель</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">model =</span> <span class="st">"cointegrated/rubert-tiny2"</span>,  </span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># по умолчанию </span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">layers =</span> <span class="sc">-</span><span class="dv">2</span>,     </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">remove_non_ascii =</span> <span class="cn">FALSE</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Получаем эмбеддинги для токенов. 313 - размерность эмбеддинга для каждого токена. BERT-токенизатор использует WordPiece токенизацию, которая разбивает слова на субтокены. Это позволяет обрабатывать редкие и неизвестные слова.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>emb<span class="sc">$</span>tokens<span class="sc">$</span>texts[[<span class="dv">2</span>]] </span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>emb<span class="sc">$</span>tokens<span class="sc">$</span>texts[[<span class="dv">2</span>]] </span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -927,7 +922,7 @@ window.Quarto = {
 </div>
 <p>Токен [CLS] (=classification) — это специальный служебный токен BERT (и его производных моделей), который автоматически добавляется в самое начало каждого входного текста.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>emb<span class="sc">$</span>texts<span class="sc">$</span>texts</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>emb<span class="sc">$</span>texts<span class="sc">$</span>texts</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
@@ -940,24 +935,24 @@ window.Quarto = {
 <section id="d-визуализации" class="level3" data-number="11.5.3">
 <h3 data-number="11.5.3" class="anchored" data-anchor-id="d-визуализации"><span class="header-section-number">11.5.3</span> 2D-визуализации</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>emb_texts <span class="ot">&lt;-</span> emb<span class="sc">$</span>texts<span class="sc">$</span>texts  <span class="sc">|&gt;</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_id =</span> news_sample<span class="sc">$</span>id) <span class="sc">|&gt;</span> </span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">topic =</span> news_sample<span class="sc">$</span>topic)</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>umap_res <span class="ot">&lt;-</span> emb_texts <span class="sc">|&gt;</span> </span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>text_id, <span class="sc">-</span>topic) <span class="sc">|&gt;</span> </span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">umap</span>(<span class="at">n_neighbors =</span> <span class="dv">15</span>, <span class="at">min_dist =</span> <span class="fl">0.1</span>, <span class="at">metric =</span> <span class="st">"cosine"</span>)</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(umap_res) <span class="sc">|&gt;</span> </span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"UMAP1"</span>, <span class="st">"UMAP2"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_id =</span> emb_texts<span class="sc">$</span>text_id, </span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">topic =</span> emb_texts<span class="sc">$</span>topic)</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>plot_df <span class="sc">|&gt;</span> </span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(UMAP1, UMAP2, <span class="at">color =</span> topic)) <span class="sc">+</span></span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text_id), <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>emb_texts <span class="ot">&lt;-</span> emb<span class="sc">$</span>texts<span class="sc">$</span>texts  <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_id =</span> news_sample<span class="sc">$</span>id) <span class="sc">|&gt;</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">topic =</span> news_sample<span class="sc">$</span>topic)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>umap_res <span class="ot">&lt;-</span> emb_texts <span class="sc">|&gt;</span> </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>text_id, <span class="sc">-</span>topic) <span class="sc">|&gt;</span> </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">umap</span>(<span class="at">n_neighbors =</span> <span class="dv">15</span>, <span class="at">min_dist =</span> <span class="fl">0.1</span>, <span class="at">metric =</span> <span class="st">"cosine"</span>)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(umap_res) <span class="sc">|&gt;</span> </span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setNames</span>(<span class="fu">c</span>(<span class="st">"UMAP1"</span>, <span class="st">"UMAP2"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text_id =</span> emb_texts<span class="sc">$</span>text_id, </span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">topic =</span> emb_texts<span class="sc">$</span>topic)</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>plot_df <span class="sc">|&gt;</span> </span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(UMAP1, UMAP2, <span class="at">color =</span> topic)) <span class="sc">+</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> text_id), <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -971,34 +966,34 @@ window.Quarto = {
 <section id="ближайшие-соседи-1" class="level3" data-number="11.5.4">
 <h3 data-number="11.5.4" class="anchored" data-anchor-id="ближайшие-соседи-1"><span class="header-section-number">11.5.4</span> Ближайшие соседи</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>nearest_neighbors_matrix <span class="ot">&lt;-</span> <span class="cf">function</span>(df, feat_row) {</span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># df: датафрейм или матрица, в каждой строке эмбеддинг</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># feat_row: индекс строки/имя строки, для которой ищем соседа</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># вектор-эмбеддинг выбранного текста</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> m[feat_row, ]</span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># косинусное сходство</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>  similarities <span class="ot">&lt;-</span> (m <span class="sc">%*%</span> v) <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="fu">rowSums</span>(m<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(v<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># самого себя не берём</span></span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>  similarities[feat_row] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="cn">Inf</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ближайший – максимальное сходство</span></span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  nn_idx <span class="ot">&lt;-</span> <span class="fu">which.max</span>(similarities)</span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># выводим результат</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">index =</span> nn_idx,</span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">similarity =</span> similarities[nn_idx]</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>nearest_neighbors_matrix <span class="ot">&lt;-</span> <span class="cf">function</span>(df, feat_row) {</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># df: датафрейм или матрица, в каждой строке эмбеддинг</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># feat_row: индекс строки/имя строки, для которой ищем соседа</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(df)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># вектор-эмбеддинг выбранного текста</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">&lt;-</span> m[feat_row, ]</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># косинусное сходство</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  similarities <span class="ot">&lt;-</span> (m <span class="sc">%*%</span> v) <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="fu">rowSums</span>(m<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(v<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># самого себя не берём</span></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>  similarities[feat_row] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="cn">Inf</span></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ближайший – максимальное сходство</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  nn_idx <span class="ot">&lt;-</span> <span class="fu">which.max</span>(similarities)</span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># выводим результат</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">index =</span> nn_idx,</span>
+<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">similarity =</span> similarities[nn_idx]</span>
+<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>nn <span class="ot">&lt;-</span> <span class="fu">nearest_neighbors_matrix</span>(<span class="at">df =</span> emb_texts <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>text_id, <span class="sc">-</span>topic), <span class="at">feat_row =</span> <span class="dv">5</span>)</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>nn</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>nn <span class="ot">&lt;-</span> <span class="fu">nearest_neighbors_matrix</span>(<span class="at">df =</span> emb_texts <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>text_id, <span class="sc">-</span>topic), <span class="at">feat_row =</span> <span class="dv">5</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>nn</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$index
 [1] 21
@@ -1008,17 +1003,17 @@ $similarity
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>news_sample <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(text)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>news_sample <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> <span class="dv">5</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(text)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Российская рок-группа «Браво» выступит в Москве в новогоднюю ночь. Об этом сообщается в пресс-релизе, поступившем в редакцию «Ленты.ру». Концерт начнется после полуночи в клубе «16 Тонн». Отмечается, что на мероприятии прозвучат все хиты коллектива, включая такие песни, как «Московский бит», «Старый отель», «Любите девушки», «Верю я», «Дорога в облака», «Этот город», «Ветер знает» и «Любовь не горит». Кроме того, на двух этажах клуба будут работать танцполы с диджеями. Билеты на концерт можно приобрести на сайте площадке. В их стоимость будет включено не только посещения праздника, но и все блюда из новогоднего меню. Группа «Браво» была основана Евгением Хавтаном в 1983 году. Солистами коллектива в разные годы были Жанна Агузарова, Валерий Сюткин и Роберт Ленц. Во время новогодних праздников в клубе «16 тонн» выступят и такие артисты, как «Рекорд Оркестр» (1 января), «НОМ» (2 января), Андрей Князев (3 января), On-the-Go (4 января), Найк Борзов (6 января), Zero People (7 января) и «Буерак» (8 января)."</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>news_sample <span class="sc">|&gt;</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> nn<span class="sc">$</span>index) <span class="sc">|&gt;</span> </span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(text)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>news_sample <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">==</span> nn<span class="sc">$</span>index) <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(text)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Группа «Алиса» даст традиционный концерт в день рождения фронтмена Константина Кинчева. Об этом сообщается в пресс-релизе, поступившем в редакцию «Ленты.ру». Отмечается, что выступление состоится 28 декабря в московском клубе «Известия Hall». На таких мероприятиях коллектив, как правило, исполняет «внепрограмнные» песни, которые редко звучат со сцены. Билеты можно приобрести на сайте. Группа« Алиса» была образована в 1983 году в Ленинграде. С тех пор она записала более 20 альбомов. Автором многих песен коллектива является Константин Кинчев, который стал вокалистом «Алисы» в 1984 году. За время своего существования в группе сменилось около десятка разных музыкантов. Кинчев вместе с остальными участниками «Алисы» создал такие альбомы, как «Энергия», «Блок ада», «Шестой лесничий», «Черная метка», «Солнцеворот» и другие."</code></pre>
 </div>
@@ -1067,51 +1062,51 @@ $similarity
 <h3 data-number="11.6.2" class="anchored" data-anchor-id="операции-с-эмбеддингами"><span class="header-section-number">11.6.2</span> Операции с эмбеддингами</h3>
 <p>Модель <code>ruwikiruscorpora_upos_cbow_300_10_2021</code> весит 638 Мб при скачивании.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>vec_path <span class="ot">&lt;-</span> <span class="st">"../files/220/model.bin"</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>embeddings <span class="ot">&lt;-</span> word2vec<span class="sc">::</span><span class="fu">read.wordvectors</span>(vec_path, <span class="at">type =</span> <span class="st">"bin"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>vec_path <span class="ot">&lt;-</span> <span class="st">"../files/220/model.bin"</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>embeddings <span class="ot">&lt;-</span> word2vec<span class="sc">::</span><span class="fu">read.wordvectors</span>(vec_path, <span class="at">type =</span> <span class="st">"bin"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="images/rusvectores.png" class="img-fluid"></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(embeddings)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(embeddings)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Создаем свою функцию косинусного сходства</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>cosine_similarity <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(x <span class="sc">*</span> y) <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(y<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Матричная версия для многих векторов</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>cosine_similarity_matrix <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>  x_norm <span class="ot">&lt;-</span> x <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  y_norm <span class="ot">&lt;-</span> y <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>(y<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tcrossprod</span>(x_norm, y_norm)</span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>find_similar <span class="ot">&lt;-</span> <span class="cf">function</span>(word, embeddings, <span class="at">top_n =</span> <span class="dv">10</span>) {</span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>word <span class="sc">%in%</span> <span class="fu">rownames</span>(embeddings)) {</span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">"Слово"</span>, word, <span class="st">"не найдено в словаре"</span>))</span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>  word_vec <span class="ot">&lt;-</span> <span class="fu">matrix</span>(embeddings[word, ], <span class="at">nrow =</span> <span class="dv">1</span>)</span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Считаем косинусное сходство со всеми словами</span></span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>  similarities <span class="ot">&lt;-</span> <span class="fu">apply</span>(embeddings, <span class="dv">1</span>, <span class="cf">function</span>(x) {</span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cosine_similarity</span>(word_vec[<span class="dv">1</span>, ], x)</span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Сортируем по убыванию сходства</span></span>
-<span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>  sorted_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(similarities, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb51-27"><a href="#cb51-27" aria-hidden="true" tabindex="-1"></a>  similar_words <span class="ot">&lt;-</span> <span class="fu">names</span>(similarities)[sorted_indices[<span class="dv">2</span><span class="sc">:</span>(top_n <span class="sc">+</span> <span class="dv">1</span>)]]  <span class="co"># пропускаем само слово</span></span>
-<span id="cb51-28"><a href="#cb51-28" aria-hidden="true" tabindex="-1"></a>  similarity_scores <span class="ot">&lt;-</span> similarities[sorted_indices[<span class="dv">2</span><span class="sc">:</span>(top_n <span class="sc">+</span> <span class="dv">1</span>)]]</span>
-<span id="cb51-29"><a href="#cb51-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb51-30"><a href="#cb51-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">word =</span> similar_words, <span class="at">similarity =</span> <span class="fu">round</span>(similarity_scores, <span class="dv">4</span>))</span>
-<span id="cb51-31"><a href="#cb51-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Создаем свою функцию косинусного сходства</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>cosine_similarity <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(x <span class="sc">*</span> y) <span class="sc">/</span> (<span class="fu">sqrt</span>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(y<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Матричная версия для многих векторов</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>cosine_similarity_matrix <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  x_norm <span class="ot">&lt;-</span> x <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  y_norm <span class="ot">&lt;-</span> y <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">rowSums</span>(y<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tcrossprod</span>(x_norm, y_norm)</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>find_similar <span class="ot">&lt;-</span> <span class="cf">function</span>(word, embeddings, <span class="at">top_n =</span> <span class="dv">10</span>) {</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>word <span class="sc">%in%</span> <span class="fu">rownames</span>(embeddings)) {</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">paste</span>(<span class="st">"Слово"</span>, word, <span class="st">"не найдено в словаре"</span>))</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  word_vec <span class="ot">&lt;-</span> <span class="fu">matrix</span>(embeddings[word, ], <span class="at">nrow =</span> <span class="dv">1</span>)</span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Считаем косинусное сходство со всеми словами</span></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>  similarities <span class="ot">&lt;-</span> <span class="fu">apply</span>(embeddings, <span class="dv">1</span>, <span class="cf">function</span>(x) {</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cosine_similarity</span>(word_vec[<span class="dv">1</span>, ], x)</span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Сортируем по убыванию сходства</span></span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>  sorted_indices <span class="ot">&lt;-</span> <span class="fu">order</span>(similarities, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>  similar_words <span class="ot">&lt;-</span> <span class="fu">names</span>(similarities)[sorted_indices[<span class="dv">2</span><span class="sc">:</span>(top_n <span class="sc">+</span> <span class="dv">1</span>)]]  <span class="co"># пропускаем само слово</span></span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>  similarity_scores <span class="ot">&lt;-</span> similarities[sorted_indices[<span class="dv">2</span><span class="sc">:</span>(top_n <span class="sc">+</span> <span class="dv">1</span>)]]</span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">word =</span> similar_words, <span class="at">similarity =</span> <span class="fu">round</span>(similarity_scores, <span class="dv">4</span>))</span>
+<span id="cb50-31"><a href="#cb50-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Использование</span></span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find_similar</span>(<span class="st">"время_NOUN"</span>, embeddings)</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find_similar</span>(<span class="st">"человек_NOUN"</span>, embeddings)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Использование</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find_similar</span>(<span class="st">"время_NOUN"</span>, embeddings)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">find_similar</span>(<span class="st">"человек_NOUN"</span>, embeddings)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>

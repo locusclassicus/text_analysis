@@ -79,6 +79,8 @@ roman_map
 bb(roman_map)
 ```
 
+![](images/geo.png)
+
 `Geodetic CRS:  +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0` -- это определение геодезической системы координат (Geodetic CRS):
 
   1. `+proj=longlat` - указывает, что используется географическая система координат (широта и долгота).

@@ -395,6 +395,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>В этом уроке мы научимся работать с пакетом <code>{ggraph}</code>, который позволяет контролировать внешний вид всех элементов графа: узлов, ребер, фона, подписей, а также позволяет управлять раскладкой сети в целом. Мы также попробуем наложить одну из сетей на карту, чтобы отразить характер пространственных связей.</p>
 <p>В качестве основы мы возьмем небольшой датасет “Тюдоры” из пакета <code>{historydata}</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/henry.jpg" class="img-fluid figure-img" width="160"></p>
+<figcaption>Генрих VIII</figcaption>
+</figure>
+</div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages('historydata', repos = c('https://ropensci.r-universe.dev'))</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(historydata)</span>
@@ -425,9 +431,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tudors_g <span class="ot">&lt;-</span> <span class="fu">graph_from_data_frame</span>(tudors)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>tudors_g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 34ce820 DN-- 25 35 -- 
+<pre><code>IGRAPH f529faa DN-- 25 35 -- 
 + attr: name (v/c), relationship (e/c)
-+ edges from 34ce820 (vertex names):
++ edges from f529faa (vertex names):
  [1] Henry VII          -&gt;Elizabeth of York     
  [2] Arthur Tudor       -&gt;Catharine of Aragon   
  [3] Henry VIII         -&gt;Catharine of Aragon   
@@ -468,9 +474,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(tudors_g)<span class="sc">$</span>degree <span class="ot">&lt;-</span> d</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tudors_g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 34ce820 DN-- 25 35 -- 
+<pre><code>IGRAPH f529faa DN-- 25 35 -- 
 + attr: name (v/c), degree (v/n), relationship (e/c)
-+ edges from 34ce820 (vertex names):
++ edges from f529faa (vertex names):
  [1] Henry VII          -&gt;Elizabeth of York     
  [2] Arthur Tudor       -&gt;Catharine of Aragon   
  [3] Henry VIII         -&gt;Catharine of Aragon   
