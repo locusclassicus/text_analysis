@@ -77,7 +77,7 @@ git config --list
 SSH-ключ позволяет связывать ваш компьютер и аккаунт на GitHub безопасно, без постоянного ввода пароля.
 
 
-1. В RStudio ключ добавляется через `Tools` → `Global Options` → `Git/SVN` → `Create RSA Key`.
+1. В RStudio ключ добавляется через `Tools` → `Global Options` → `Git/SVN` → `Create SSH Key`.
 
 2. Добавьте ключ на GitHub:  
    - Профиль → `Settings` → `SSH and GPG keys` → `New SSH key`
