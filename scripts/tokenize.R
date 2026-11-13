@@ -369,6 +369,8 @@ spread_freq
 
 library(scales)
 
+set.seed(2026)
+
 spread_freq |>
   filter(chapter_5 > 0, chapter_6 > 0) |>
   ggplot(aes(x = chapter_5, y = chapter_6)) +
@@ -433,6 +435,7 @@ neighbours <- cooccurrence(
 neighbours
 
 neighbours_graph <- neighbours |>
+  arrange(desc(cooc), term1, term2) |>
   slice_head(n = 60) |>
   graph_from_data_frame()
 

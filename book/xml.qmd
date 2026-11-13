@@ -385,6 +385,8 @@ acts <- line_nodes |>
   xml_find_first("ancestor::tei:div[@type='act']/tei:head", ns = ns) |> 
   xml_text()
 
+set.seed(14112026)
+
 acts |> 
   sample(6)
 ```

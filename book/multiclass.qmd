@@ -1,3 +1,8 @@
+---
+execute:
+  freeze: true  # при сборке книги берутся готовые результаты из _freeze/multiclass
+---
+
 # Многоклассовая классификация 
 
 Многоклассовая классификация может использоваться для определения
@@ -68,13 +73,13 @@ save(corpus_tf, file = "../data/corpus_tf.Rdata")
 load("../data/corpus_tf.Rdata")
 ```
 
-```{r}
+```{r paged.print=FALSE}
 corpus_tf
 ```
 
 Мы будем определять автора, поэтому разделим первый столбец на два.
 
-```{r warning=FALSE}
+```{r warning=FALSE, paged.print=FALSE}
 corpus_tf <- corpus_tf |> 
   separate(id, into = c("author", "title", NA), sep = "_") 
 corpus_tf
@@ -185,7 +190,7 @@ base_trained
 Если вы вызывали `prep(..., retain = TRUE)`, то можете использовать `juice()` вместо `bake()` для получения обработанных обучающих данных напрямую.
 
 
-```{r}
+```{r paged.print=FALSE}
 base_trained |> 
   # или juice()
   bake(new_data = NULL)

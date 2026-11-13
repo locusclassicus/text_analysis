@@ -262,6 +262,7 @@ pal <- c("#f1c40f", "#34495e",
 
 library(wordcloud)
 par(mar = c(1, 1, 1, 1))
+set.seed(14112026) # облако слов раскладывается случайно
 wordcloud(count_data$word, 
           count_data$n,
           min.freq = 3,

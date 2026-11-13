@@ -597,9 +597,9 @@ Years of the first printing (range): 1747–1986</code></pre>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>godunov</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH cd620f5 UNW- 79 327 -- 
+<pre><code>IGRAPH e5f5f14 UNW- 79 327 -- 
 + attr: name (v/c), sex (v/c), weight (e/n)
-+ edges from cd620f5 (vertex names):
++ edges from e5f5f14 (vertex names):
  [1] Воротынский--Шуйский                   
  [2] Воротынский--Борис                     
  [3] Воротынский--Бояре                     
@@ -621,7 +621,7 @@ Years of the first printing (range): 1747–1986</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>idx <span class="ot">&lt;-</span> <span class="fu">edge_attr</span>(godunov)<span class="sc">$</span>weight <span class="sc">&gt;</span> <span class="dv">1</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(godunov)[idx] </span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 9/327 edges from cd620f5 (vertex names):
+<pre><code>+ 9/327 edges from e5f5f14 (vertex names):
 [1] Воротынский--Шуйский        Шуйский    --Борис         
 [3] Борис      --Бояре          Борис      --Феодор        
 [5] Борис      --Басманов       Григорий   --Гаврила Пушкин
@@ -889,7 +889,7 @@ $theoretical_max
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">articulation_points</span>(godunov)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 7/79 vertices, named, from cd620f5:
+<pre><code>+ 7/79 vertices, named, from e5f5f14:
 [1] Народ          Патриарх       Григорий       Марина         Гаврила Пушкин
 [6] Борис          Шуйский       </code></pre>
 </div>
@@ -898,7 +898,7 @@ $theoretical_max
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(godunov)[betweenness <span class="sc">&gt;</span> <span class="fl">0.025</span>]</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 16/79 vertices, named, from cd620f5:
+<pre><code>+ 16/79 vertices, named, from e5f5f14:
  [1] Шуйский            Народ              Борис              Бояре             
  [5] Григорий           Патриарх           Феодор             Pater Черниковский
  [9] Гаврила Пушкин     Поляк              Хрущов             Карела            
@@ -921,19 +921,19 @@ $theoretical_max
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cliques</span>(godunov, <span class="at">min=</span><span class="dv">11</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
-+ 11/79 vertices, named, from cd620f5:
++ 11/79 vertices, named, from e5f5f14:
  [1] Народ                   Ксения                  Феодор                 
  [4] Нищий                   Стража                  Один из народа (Кремль)
  [7] Другой (Кремль)         Один из народа (Кремль) Другой (Кремль)        
 [10] Третий (Кремль)         Мосальский             
 
 [[2]]
-+ 11/79 vertices, named, from cd620f5:
++ 11/79 vertices, named, from e5f5f14:
  [1] Борис     Бояре     Феодор    Басманов  Боярин    Один      Другой   
  [8] Третий    Четвертый Пятый     Шестой   
 
 [[3]]
-+ 11/79 vertices, named, from cd620f5:
++ 11/79 vertices, named, from e5f5f14:
  [1] Народ                                          
  [2] Борис                                          
  [3] Бояре                                          

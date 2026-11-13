@@ -85,6 +85,8 @@ summary(lm(price ~ reviews + year + rating + genre, data  = books))
 Посмотрим, можно ли как-то улучшить этот результат. Но сначала оценим визуально связь между ценой, с одной стороны, и годом и жанром, с другой.
 
 ```{r message=FALSE}
+set.seed(14112026)
+
 g1 <- books |> 
   ggplot(aes(year, price, color = genre, group = genre)) + 
   geom_jitter(show.legend = FALSE, alpha = 0.7) + 

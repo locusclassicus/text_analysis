@@ -365,7 +365,7 @@ corpus_w2v <- news_tokens_pruned |>
   distinct(id, text)
 ```
 
-```{r}
+```{r eval=!file.exists("../data/news_word2vec.bin")}
 # устанавливаем зерно, т.к. начальные веса устанавливаются произвольно
 set.seed(02062024) 
 model <- word2vec(x = corpus_w2v$text, 
@@ -375,8 +375,17 @@ model <- word2vec(x = corpus_w2v$text,
                   iter = 20,
                   hs = TRUE,
                   min_count = 5,
-                  threads = 6)
+                  threads = 1) # при нескольких потоках результат не воспроизводится
 
+```
+
+```{r echo=FALSE, eval=!file.exists("../data/news_word2vec.bin")}
+# модель обучается при сборке только один раз, потом загружается из файла
+write.word2vec(model, file = "../data/news_word2vec.bin")
+```
+
+```{r echo=FALSE}
+model <- read.word2vec("../data/news_word2vec.bin")
 ```
 
 Наша модель содержит эмбеддинги для слов; посмотрим на матрицу.
