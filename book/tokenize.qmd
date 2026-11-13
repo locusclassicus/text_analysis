@@ -187,6 +187,13 @@ content_counts |>
 udpipe_download_model(language = "english-ewt")
 ```
 
+```{r include=FALSE}
+# при сборке книги модель скачивается, только если ее еще нет
+if (!file.exists("english-ewt-ud-2.5-191206.udpipe")) {
+  udpipe_download_model(language = "english-ewt")
+}
+```
+
 ```{r}
 english_ewt <- udpipe_load_model(file = "english-ewt-ud-2.5-191206.udpipe")
 ```
