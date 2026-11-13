@@ -24,10 +24,10 @@ _Объект_ подобен именованному списку и запи�
 
 ## От JSON к таблице
 
-Загрузим небольшой файл `TBBT.json`, хранящий данные о сериале "Теория большого взрыва" ([источник](https://gist.github.com/sahithyandev/540c82170a19f97deef9e23796083f01)). Скачать лучше из репозитория курса [ссылка](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/TBBT.json). 
+Загрузим небольшой файл `TBBT.json`, хранящий данные о сериале "Теория большого взрыва" ([источник](https://gist.github.com/sahithyandev/540c82170a19f97deef9e23796083f01)). Скачать лучше из репозитория курса [ссылка](https://github.com/locusclassicus/text_analysis/blob/main/files/TBBT.json). 
 
 ```{r message=FALSE}
-path <- "https://raw.githubusercontent.com/locusclassicus/text_analysis_2024/refs/heads/main/files/TBBT.json"
+path <- "https://raw.githubusercontent.com/locusclassicus/text_analysis/refs/heads/main/files/TBBT.json"
 tbbt <- read_json(path)
 ```
 

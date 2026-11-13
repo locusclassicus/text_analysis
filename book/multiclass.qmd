@@ -1,7 +1,7 @@
 # Многоклассовая классификация 
 
 Многоклассовая классификация может использоваться для определения
-автора, жанра, тематики или эмоциональной тональности текста. В этом уроке мы научимся классифицировать тексты по автору, воспользовавшись [учебным датасетом русской прозы](https://github.com/JoannaBy/RussianNovels).В формате zip можно забрать [здесь](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/russian_corpus.zip).
+автора, жанра, тематики или эмоциональной тональности текста. В этом уроке мы научимся классифицировать тексты по автору, воспользовавшись [учебным датасетом русской прозы](https://github.com/JoannaBy/RussianNovels).В формате zip можно забрать [здесь](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/russian_corpus.zip).
 
 Основные задачи этого урока:
 
@@ -195,7 +195,7 @@ base_trained |>
 
 ### PCA для разведывательного анализа
 
-PCA (Principal Component Analysis) — это один из основных и наиболее понятных подходов к уменьшению размерности данных. Он относится к линейным методам обучения без учителя, что означает, что для его работы не требуется информация о целевых переменных (например, метках классов). Метод создаёт новые переменные (главные компоненты) — линейные комбинации исходных признаков, которые максимизируют дисперсию данных. Первые несколько компонентов содержат основную информацию (вариативность) из всего набора признаков. Подробнее о нем см. [урок 15](https://locusclassicus.github.io/text_analysis_2024/cluster.html#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82).
+PCA (Principal Component Analysis) — это один из основных и наиболее понятных подходов к уменьшению размерности данных. Он относится к линейным методам обучения без учителя, что означает, что для его работы не требуется информация о целевых переменных (например, метках классов). Метод создаёт новые переменные (главные компоненты) — линейные комбинации исходных признаков, которые максимизируют дисперсию данных. Первые несколько компонентов содержат основную информацию (вариативность) из всего набора признаков. Подробнее о нем см. [урок 15](https://locusclassicus.github.io/text_analysis/cluster.html#%D0%BC%D0%B5%D1%82%D0%BE%D0%B4-%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82).
 
 ```{r}
 pca_trained <- pca_rec |>
@@ -815,7 +815,7 @@ top_terms  |>
 
 📝 **Данные**:
 
-Загрузите и подготовьте корпус (тексты находятся в архиве [british_fiction](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/files/british_fiction.zip); метаданные — в файле [overview](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/overview.tsv)).   
+Загрузите и подготовьте корпус (тексты находятся в архиве [british_fiction](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/files/british_fiction.zip); метаданные — в файле [overview](https://github.com/locusclassicus/text_analysis/blob/main/files/overview.tsv)).   
 
 
 📦 **Формат сдачи**:

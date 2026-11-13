@@ -713,7 +713,7 @@ ggraph(galbraith_graph, layout = "kk") +
 
 ## Домашнее задание 
 
-По [ссылке](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/table_with_frequencies.txt) скачайте файл с частотностями из датасета «[Стилеметрические данные “Тихого Дона” и современной ему прозы](https://dataverse.pushdom.ru/dataset.xhtml?persistentId=doi:10.31860/openlit-2020.05-R001)», подготовленного Б.В. Ореховым.
+По [ссылке](https://github.com/locusclassicus/text_analysis/blob/main/files/table_with_frequencies.txt) скачайте файл с частотностями из датасета «[Стилеметрические данные “Тихого Дона” и современной ему прозы](https://dataverse.pushdom.ru/dataset.xhtml?persistentId=doi:10.31860/openlit-2020.05-R001)», подготовленного Б.В. Ореховым.
 
   
 

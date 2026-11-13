@@ -26,7 +26,7 @@ library(tidymodels)
 library(discrim)
 ```
 
-По [ссылке](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/fedPapers85.csv) скачайте датасет с частотностью слов в записках ( [источник](https://www.kaggle.com/datasets/tobyanderson/federalist-papers)). Из него мы удалим три текста предположительного двойного авторства и пять эссе Джона Джея.
+По [ссылке](https://github.com/locusclassicus/text_analysis/blob/main/files/fedPapers85.csv) скачайте датасет с частотностью слов в записках ( [источник](https://www.kaggle.com/datasets/tobyanderson/federalist-papers)). Из него мы удалим три текста предположительного двойного авторства и пять эссе Джона Джея.
 
 ```{r message=FALSE}
 fed <- read_csv("../files/fedPapers85.csv") |> 

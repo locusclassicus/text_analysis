@@ -11,7 +11,7 @@
 Датасет до 2023 г. был доступен на сайте Британской библиотеки (<https://www.bl.uk/>); в репозитории курса сохранена его копия. Скачаем архив.
 
 ```{r eval=FALSE}
-my_url <- "https://github.com/locusclassicus/text_analysis_2024/raw/main/files/HP.zip"
+my_url <- "https://github.com/locusclassicus/text_analysis/raw/main/files/HP.zip"
 download.file(url = my_url, destfile = "../files/HP.zip")
 ```
 

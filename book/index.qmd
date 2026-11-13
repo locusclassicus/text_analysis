@@ -99,4 +99,4 @@
 
 ## Обратная связь
 
-Если вы заметили ошибку или опечатку, можно сообщить по почте [oalieva\@hse.ru](mailto:oalieva@hse.ru){.email} или оставить [issue](https://github.com/locusclassicus/text_analysis_2024/issues) в репозитории курса на GitHub.
+Если вы заметили ошибку или опечатку, можно сообщить по почте [oalieva\@hse.ru](mailto:oalieva@hse.ru){.email} или оставить [issue](https://github.com/locusclassicus/text_analysis/issues) в репозитории курса на GitHub.

@@ -224,7 +224,7 @@ shinyApp(ui = ui, server = server)
 
 ## Сервер
 
-В предыдущем уроке мы обучили нейросеть определять  категорию новости по тексту. Если вы не сохранили результат, то заберите [препроцессор](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/onehot_prep.rds) и [модель](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/my_dense_model.keras) по ссылкам и поместите их в директорию с приложением.
+В предыдущем уроке мы обучили нейросеть определять  категорию новости по тексту. Если вы не сохранили результат, то заберите [препроцессор](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/onehot_prep.rds) и [модель](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/my_dense_model.keras) по ссылкам и поместите их в директорию с приложением.
 
 ### Подготовка окружения
 

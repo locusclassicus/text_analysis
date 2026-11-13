@@ -432,7 +432,7 @@ visNetwork(nodes, edges) |>
 Прочитайте в окружение размеченный текст "Записок Цезаря", с которым мы работали в одном из предыдущих уроков. NB: Можно разметить другой текст (или взять готовый conllu), если не хотите работать с латынью `r emo::ji("tear")`.
 
 ```{r}
-caesar <- udpipe_read_conllu("https://github.com/locusclassicus/text_analysis_2024/raw/main/files/bg_latinpipe.conllu")
+caesar <- udpipe_read_conllu("https://github.com/locusclassicus/text_analysis/raw/main/files/bg_latinpipe.conllu")
 ```
 
 Функция `cooccurence()` из пакета `udpipe` позволяет 

@@ -16,7 +16,7 @@ library(sf)
 
 В этом уроке мы будем использовать два набора данных:
 
-1. **Клады римских монет** (файл `byzcoins.Rdata`) – информация о местах находок кладов. Данные собраны через сайт <https://chre.ashmus.ox.ac.uk/>, их можно забрать [по ссылке](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/byzcoins.Rdata). Мы собрали только клады, отнесенные к "византийскому" периоду, т.е. до 518 г. В этом году скончался император Анастасий, денежная реформа которого считается началом византийской чеканки. 
+1. **Клады римских монет** (файл `byzcoins.Rdata`) – информация о местах находок кладов. Данные собраны через сайт <https://chre.ashmus.ox.ac.uk/>, их можно забрать [по ссылке](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/byzcoins.Rdata). Мы собрали только клады, отнесенные к "византийскому" периоду, т.е. до 518 г. В этом году скончался император Анастасий, денежная реформа которого считается началом византийской чеканки. 
 
 2.  Датасет на основе **"Географии" Страбона**. [Источник](https://recogito.pelagios.org/document/r9l3ycm4echwpo/part/1/edit): проект Recogito. Recogito — это бесплатный, очень простой, но достаточно удобный онлайн-инструмент, в 2018 получивший приз как лучший DH-tool в Digital Humanities Awards 2018. Он позволяет работать в командах над аннотированием текстов. Аннотации можно затем экспортировать в различных форматах, в том числе в формате GeoJSON.
 
@@ -42,7 +42,7 @@ byzcoins_clean <- byzcoins |>
   filter(!is.na(lon), !is.na(lat)) 
 ```
 
-Датасет с "Географией" скачан с сайта <https://recogito.pelagios.org> (нужна регистрация); можно [забрать](https://github.com/locusclassicus/text_analysis_2024/blob/main/files/strabo.json) из репозитория курса. Мы отберем только полигоны и мультиполигоны.
+Датасет с "Географией" скачан с сайта <https://recogito.pelagios.org> (нужна регистрация); можно [забрать](https://github.com/locusclassicus/text_analysis/blob/main/files/strabo.json) из репозитория курса. Мы отберем только полигоны и мультиполигоны.
 
 ```{r}
 strabo_sf <- st_read("../files/strabo.json") |> 

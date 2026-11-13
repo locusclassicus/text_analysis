@@ -36,7 +36,7 @@ library(text)
 
 ## Подготовка данных
 
-Мы воспользуемся [датасетом](https://www.kaggle.com/datasets/marialevchenko/news-dataset-from-lenta-ru-2019-2023/data) с подборкой новостей на русском языке (для ускорения вычислений возьмем из него лишь один год). Файл в формате `.Rdata` в формате `.Rdata`  доступен по [ссылке](https://github.com/locusclassicus/text_analysis_2024/raw/main/data/news.Rdata).
+Мы воспользуемся [датасетом](https://www.kaggle.com/datasets/marialevchenko/news-dataset-from-lenta-ru-2019-2023/data) с подборкой новостей на русском языке (для ускорения вычислений возьмем из него лишь один год). Файл в формате `.Rdata` в формате `.Rdata`  доступен по [ссылке](https://github.com/locusclassicus/text_analysis/raw/main/data/news.Rdata).
 
 
 
@@ -103,7 +103,7 @@ save(news_tokens_pruned, file = "../data/news_tokens_pruned.Rdata")
  </p>
 </details>
 
-Подготовленные данные можно забрать по [ссылке](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/news_tokens_pruned.Rdata).
+Подготовленные данные можно забрать по [ссылке](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/news_tokens_pruned.Rdata).
 
 ```{r}
 load("../data/news_tokens_pruned.Rdata")

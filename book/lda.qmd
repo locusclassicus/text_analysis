@@ -45,7 +45,7 @@ library(LDAvis)
 
 ## Подготовка данных
 
-Чтобы понять возможности алгоритма, мы попробуем передать ему тот же новостной архив ([ссылка](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/news_tokens_pruned.Rdata) для скачивания). На новостях сразу видно адекватность модели; но это не значит, что применение LDA ограничено подобными сюжетами. Этот метод с успехом [применяется](https://iq-media.ru/archive/885865882.html), например, в историко-научных или литературоведческих исследованиях. Он хорошо подходит, если необходимо на основе журнального архива [описать](https://sysblok.ru/metascience/tancy-jeros-i-zachatie-o-chem-pisali-platonovskie-issledovanija-za-poslednie-10-let/) развитие некоторой области знания. Но сейчас нам подойдет пример попроще `r emo::ji("baby")`
+Чтобы понять возможности алгоритма, мы попробуем передать ему тот же новостной архив ([ссылка](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/news_tokens_pruned.Rdata) для скачивания). На новостях сразу видно адекватность модели; но это не значит, что применение LDA ограничено подобными сюжетами. Этот метод с успехом [применяется](https://iq-media.ru/archive/885865882.html), например, в историко-научных или литературоведческих исследованиях. Он хорошо подходит, если необходимо на основе журнального архива [описать](https://sysblok.ru/metascience/tancy-jeros-i-zachatie-o-chem-pisali-platonovskie-issledovanija-za-poslednie-10-let/) развитие некоторой области знания. Но сейчас нам подойдет пример попроще `r emo::ji("baby")`
 
 
 ```{r message=FALSE, warning=FALSE}
@@ -169,7 +169,7 @@ save(news_lda, file = "../data/news_lda.Rdata")
 load("../data/news_lda.Rdata")
 ```
 
-Теперь наша тематическая модель готова. Ее можно скачать в формате .Rdata [отсюда](https://github.com/locusclassicus/text_analysis_2024/raw/refs/heads/main/data/news_lda.Rdata); это примерно 2.5 Mb.
+Теперь наша тематическая модель готова. Ее можно скачать в формате .Rdata [отсюда](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/news_lda.Rdata); это примерно 2.5 Mb.
 
 ## Слова и темы 
 
