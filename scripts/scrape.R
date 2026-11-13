@@ -707,7 +707,7 @@ summa_raw <- tibble(
 
 summa_raw
 
-# save(summa_raw, file = "ST.Rdata")
+# save(summa_raw, file = "data/ST.Rdata")
 # load("data/ST.Rdata")
 
 # ------------------------------------------------------------

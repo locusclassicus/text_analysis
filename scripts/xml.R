@@ -385,7 +385,7 @@ recipe_df
 # ------------------------------------------------------------
 
 url <- "https://raw.githubusercontent.com/dracor-org/rusdracor/main/tei/griboyedov-gore-ot-uma.xml"
-download_xml(url, file = "griboedov.xml")
+download_xml(url, file = "files/griboedov.xml")
 
 
 # ------------------------------------------------------------
