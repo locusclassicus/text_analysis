@@ -80,4 +80,3 @@ quarto render                # вся книга
 | [gore_ot_uma.R](helper_scripts/gore_ot_uma.R) | разбор `griboedov.xml` пакетом `{XML}` | xml |
 | [linear.R](helper_scripts/linear.R), [logit.R](helper_scripts/logit.R) | `images/linear.png`, `images/logit.png` | regression, multiclass |
 | [svm.R](helper_scripts/svm.R), [svr.R](helper_scripts/svr.R) | `images/svm.png`, `images/svr.png` | multiclass, multivar |
-| [friends_biplot.R](helper_scripts/friends_biplot.R) | биплот с портретами персонажей «Друзей» | cluster (дополнительное задание) |
