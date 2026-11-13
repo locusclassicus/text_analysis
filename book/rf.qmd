@@ -1,3 +1,8 @@
+---
+execute:
+  freeze: true  # при сборке книги берутся готовые результаты из _freeze/rf
+---
+
 # Случайный лес 🌳
 
 ```{r message=FALSE, warning=FALSE}
