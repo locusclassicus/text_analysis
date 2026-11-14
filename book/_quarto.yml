@@ -43,6 +43,10 @@ book:
   - llm.qmd
   - references.qmd
 bibliography: references.bib
+csl: chicago-author-date-ru.csl
+citeproc: false
+filters:
+  - bibliography-ru.lua
 language: custom.yml
 lang: ru
 df-print: paged

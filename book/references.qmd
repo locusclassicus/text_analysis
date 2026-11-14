@@ -1,4 +1,5 @@
-# Литература {.unnumbered}
+---
+bibliography-page: true
+---
 
-::: {#refs}
-:::
+# Литература {.unnumbered}
