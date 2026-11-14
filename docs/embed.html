@@ -634,7 +634,7 @@ window.Quarto = {
 <figcaption><a href="https://sysblok.ru/knowhow/kak-ponjat-o-chem-tekst-ne-chitaja-ego/">Источник.</a></figcaption>
 </figure>
 </div>
-<p>Для этого используется алгебраическая процедура под названием сингулярное разложение матрицы (SVD). При сингулярном разложении исходная матрица <span class="math inline">\(A_r\)</span> проецируется в пространство меньшей размерности, так что получается новая матрица <span class="math inline">\(A_k\)</span>, которая представляет собой малоранговую аппроксимацию исходной матрицы <span class="citation" data-cites="маннинг2020">(<a href="references.html#ref-маннинг2020" role="doc-biblioref">К. Маннинг, П. Рагхаван, Х. Шютце 2020 г., 407</a>)</span>.</p>
+<p>Для этого используется алгебраическая процедура под названием сингулярное разложение матрицы (SVD). При сингулярном разложении исходная матрица <span class="math inline">\(A_r\)</span> проецируется в пространство меньшей размерности, так что получается новая матрица <span class="math inline">\(A_k\)</span>, которая представляет собой малоранговую аппроксимацию исходной матрицы <span class="citation" data-cites="маннинг2020">(<a href="references.html#ref-маннинг2020">Маннинг и др. 2020, 407</a>)</span>.</p>
 <p>Для получения новой матрицы применяется следующая процедура. Сначала для матрицы <span class="math inline">\(A_r\)</span> строится ее сингулярное разложение (Singular Value Decomposition) по формуле: <span class="math inline">\(A = UΣV^t\)</span> . Иными словами, одна матрица представляется в виде произведения трех других, из которых средняя - диагональная.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1128,9 +1128,9 @@ $similarity
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-маннинг2020" class="csl-entry" role="listitem">
-К. Маннинг, П. Рагхаван, Х. Шютце. 2020 г. <em><span>Введение в информационный поиск</span></em>. Диалектика.
+Маннинг, К., Рагхаван, П., и Шютце, Х. 2020. <em><span>Введение в информационный поиск</span></em>. Диалектика.
 </div>
 </div>
 </section>
@@ -1269,7 +1269,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1339,7 +1341,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

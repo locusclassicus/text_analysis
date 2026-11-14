@@ -442,7 +442,7 @@ div.csl-indent {
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Русский язык входит в языков, для которых Й. Чен и С. Скиена собрали оценочную лексику <span class="citation" data-cites="skiena2014">(<a href="references.html#ref-skiena2014" role="doc-biblioref">Chen и Skiena 2014 г.</a>)</span>. Их лексикон построен на основе графа знаний, связывающего слова на разных языках (на основе Wiktionary, Google Translate, транслитерационных ссылок и WordNet). Слова оцениваются по бинарной шкале ( -1 / 1).</p>
+<p>Русский язык входит в языков, для которых Й. Чен и С. Скиена собрали оценочную лексику <span class="citation" data-cites="skiena2014">(<a href="references.html#ref-skiena2014">Chen and Skiena 2014</a>)</span>. Их лексикон построен на основе графа знаний, связывающего слова на разных языках (на основе Wiktionary, Google Translate, транслитерационных ссылок и WordNet). Слова оцениваются по бинарной шкале ( -1 / 1).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0211</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>chen_skiena <span class="ot">&lt;-</span> hash_sentiment_chen_skiena</span>
@@ -492,7 +492,7 @@ div.csl-indent {
 </section>
 <section id="опрятный-подход" class="level3" data-number="12.2.2">
 <h3 data-number="12.2.2" class="anchored" data-anchor-id="опрятный-подход"><span class="header-section-number">12.2.2</span> Опрятный подход</h3>
-<p>Согласно <span class="citation" data-cites="textmining2017">Silge и Robinson (<a href="references.html#ref-textmining2017" role="doc-biblioref">2017 г.</a>)</span>, анализе эмоциональной тональности в духе tidy data предполагает следующий алгоритм работы:</p>
+<p>Согласно <span class="citation" data-cites="textmining2017">Silge and Robinson (<a href="references.html#ref-textmining2017">2017</a>)</span>, анализе эмоциональной тональности в духе tidy data предполагает следующий алгоритм работы:</p>
 <p><img src="https://www.tidytextmining.com/images/tmwr_0201.png" class="img-fluid"></p>
 <p>Прежде всего текст делится на токены (или лемматизируется), затем каждому токену присваивается некое значение тональности, после чего эти значения суммируются и визуализируются.</p>
 <p>Прежде всего текст необходимо токенизировать, лемматизировать и привести в опрятный формат. Можно загрузить уже подготовленные данные <a href="https://github.com/locusclassicus/text_analysis/raw/main/data/liza_tbl.Rdata">по ссылке</a>.</p>
@@ -946,12 +946,12 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-skiena2014" class="csl-entry" role="listitem">
-Chen, Y., и S. Skiena. 2014 г. <span>«Building Sentiment Lexicons for All Major Languages»</span>. <em>Proceedings of 52nd Annual Meeting of the Association for Computational Linguistics</em>, 383–89.
+Chen, Y., and Skiena, S. 2014. <span>“Building Sentiment Lexicons for All Major Languages.”</span> <em>Proceedings of the 52nd Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)</em> (Baltimore), 383–89.
 </div>
 <div id="ref-textmining2017" class="csl-entry" role="listitem">
-Silge, Julia, и David Robinson. 2017 г. <em>Text Mining with R</em>. O’Reilly. <a href="http://www.tidytextmining.com">http://www.tidytextmining.com</a>.
+Silge, J., and Robinson, D. 2017. <em>Text Mining with <span>R</span>: A Tidy Approach</em>. O’Reilly. <a href="https://www.tidytextmining.com">https://www.tidytextmining.com</a>.
 </div>
 </div>
 </section>
@@ -1090,7 +1090,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1160,7 +1162,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

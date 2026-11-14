@@ -464,7 +464,7 @@ window.Quarto = {
 <div class="callout-info" data-icon="false">
 <p>Кстати, дерево — это частный случай графа. Его отличают три ключевых свойства: (1) нет циклов: если пройти по ребрам, нельзя вернуться в исходную вершину, не повторив ребро; (2) связность: между любыми двумя вершинами есть путь; (3) между любыми двумя вершинами существует ровно один простой путь.</p>
 </div>
-<p>Подробнее о сетевом анализе см. <span class="citation" data-cites="Kolaczyk2009">Kolaczyk (<a href="references.html#ref-Kolaczyk2009" role="doc-biblioref">2009 г.</a>)</span> и <span class="citation" data-cites="luke2017">Люк (<a href="references.html#ref-luke2017" role="doc-biblioref">2017 г.</a>)</span>, на которых во многом опирается эта глава.</p>
+<p>Подробнее о сетевом анализе см. <span class="citation" data-cites="Kolaczyk2009">Kolaczyk (<a href="references.html#ref-Kolaczyk2009">2009</a>)</span> и <span class="citation" data-cites="luke2017">Люк (<a href="references.html#ref-luke2017">2017</a>)</span>, на которых во многом опирается эта глава.</p>
 <section id="создание-графа" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="создание-графа"><span class="header-section-number">18.1</span> Создание графа</h2>
 <section id="функция-make_graph" class="level3" data-number="18.1.1">
@@ -493,9 +493,9 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 301c111 UN-- 10 2 -- 
+<pre><code>IGRAPH f603b65 UN-- 10 2 -- 
 + attr: name (v/c)
-+ edges from 301c111 (vertex names):
++ edges from f603b65 (vertex names):
 [1] 1--2 1--5</code></pre>
 </div>
 </div>
@@ -511,9 +511,9 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">graph_from_literal</span>(Sam<span class="sc">-+</span>Mary, Sam<span class="sc">-+</span>Tom, Mary<span class="sc">++</span>Tom)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH d3e76e6 DN-- 3 4 -- 
+<pre><code>IGRAPH 96919bf DN-- 3 4 -- 
 + attr: name (v/c)
-+ edges from d3e76e6 (vertex names):
++ edges from 96919bf (vertex names):
 [1] Sam -&gt;Mary Sam -&gt;Tom  Mary-&gt;Tom  Tom -&gt;Mary</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(g)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
@@ -578,7 +578,7 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(g)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH b972efb DN-- 5 6 -- 
+<pre><code>IGRAPH 6ea965e DN-- 5 6 -- 
 + attr: name (v/c)</code></pre>
 </div>
 </div>
@@ -606,7 +606,7 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(g)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH cf55321 DN-- 5 6 -- 
+<pre><code>IGRAPH 8eecb55 DN-- 5 6 -- 
 + attr: name (v/c)</code></pre>
 </div>
 </div>
@@ -638,9 +638,9 @@ window.Quarto = {
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>writers</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH edc01d0 DN-- 780 4440 -- 
+<pre><code>IGRAPH 174e979 DN-- 780 4440 -- 
 + attr: name (v/c), Weight (e/n)
-+ edges from edc01d0 (vertex names):
++ edges from 174e979 (vertex names):
  [1] Н.И.Ахвердов -&gt;П.И.Богданович    А.Д.Байбаков -&gt;А.А.Барсов       
  [3] А.Д.Кантемир -&gt;А.К.Барсов        А.Д.Кантемир -&gt;С.С.Волчков      
  [5] А.Д.Кантемир -&gt;И.И.Ильинский     А.Д.Кантемир -&gt;Ф.Кролик         
@@ -665,7 +665,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">V</span>(writers)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 780/780 vertices, named, from edc01d0:
+<pre><code>+ 780/780 vertices, named, from 174e979:
   [1] Н.И.Ахвердов                 А.Д.Байбаков                
   [3] А.Д.Кантемир                 П.М.Карабанов               
   [5] Н.Карандашов                 Ф.В.Каржавин                
@@ -689,7 +689,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">E</span>(writers)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 4440/4440 edges from edc01d0 (vertex names):
+<pre><code>+ 4440/4440 edges from 174e979 (vertex names):
  [1] Н.И.Ахвердов -&gt;П.И.Богданович    А.Д.Байбаков -&gt;А.А.Барсов       
  [3] А.Д.Кантемир -&gt;А.К.Барсов        А.Д.Кантемир -&gt;С.С.Волчков      
  [5] А.Д.Кантемир -&gt;И.И.Ильинский     А.Д.Кантемир -&gt;Ф.Кролик         
@@ -765,7 +765,7 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_diameter</span>(lgc)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 12/776 vertices, named, from a36bb56:
+<pre><code>+ 12/776 vertices, named, from 12e41e9:
  [1] Н.Карандашов         И.Г.Бакмейстер       М.М.Щербатов        
  [4] Н.И.Новиков          П.И.Богданович       Н.Ф.Эмин            
  [7] Н.Р.Судовщиков       А.М.Ченыхаев         И.В.Нехачин         
@@ -776,7 +776,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">farthest_vertices</span>(lgc)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$vertices
-+ 2/776 vertices, named, from a36bb56:
++ 2/776 vertices, named, from 12e41e9:
 [1] Н.Карандашов Ф.П.Печерин 
 
 $distance
@@ -789,7 +789,7 @@ $distance
 <div class="cell-output cell-output-stdout">
 <pre><code>$vpath
 $vpath[[1]]
-+ 12/776 vertices, named, from a36bb56:
++ 12/776 vertices, named, from 12e41e9:
  [1] Н.Карандашов         И.Г.Бакмейстер       М.М.Щербатов        
  [4] Н.И.Новиков          П.И.Богданович       Н.Ф.Эмин            
  [7] Н.Р.Судовщиков       А.М.Ченыхаев         И.В.Нехачин         
@@ -842,9 +842,9 @@ NULL</code></pre>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>p</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH cf92f71 DN-- 1 0 -- 
+<pre><code>IGRAPH 93b4f2b DN-- 1 0 -- 
 + attr: name (v/c), Weight (e/n)
-+ edges from cf92f71 (vertex names):</code></pre>
++ edges from 93b4f2b (vertex names):</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -854,7 +854,7 @@ NULL</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">neighbors</span>(writers, <span class="st">"М.С.Пахомов"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 3/780 vertices, named, from edc01d0:
+<pre><code>+ 3/780 vertices, named, from 174e979:
 [1] И.И.Сидоровский      И.Ф.Янковичдемириево А.А.Барсов          </code></pre>
 </div>
 </div>
@@ -891,9 +891,9 @@ NULL</code></pre>
 <span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>p3</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4af3322 DN-- 48 266 -- 
+<pre><code>IGRAPH fd7d0ea DN-- 48 266 -- 
 + attr: name (v/c), Weight (e/n)
-+ edges from 4af3322 (vertex names):
++ edges from fd7d0ea (vertex names):
  [1] А.Д.Байбаков -&gt;А.А.Барсов           П.М.Карабанов-&gt;Н.М.Карамзин        
  [3] П.М.Карабанов-&gt;А.А.Барсов           П.М.Карабанов-&gt;ЕкатеринаII         
  [5] И.И.Мелиссино-&gt;Н.И.Новиков          И.И.Мелиссино-&gt;И.И.Бецкой          
@@ -930,7 +930,7 @@ NULL</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shortest_paths</span>(writers, <span class="at">from =</span> <span class="st">"М.С.Пахомов"</span>, <span class="at">to =</span> <span class="st">"ЕкатеринаII"</span>)<span class="sc">$</span>vpath[[<span class="dv">1</span>]]</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>+ 3/780 vertices, named, from edc01d0:
+<pre><code>+ 3/780 vertices, named, from 174e979:
 [1] М.С.Пахомов          И.Ф.Янковичдемириево ЕкатеринаII         </code></pre>
 </div>
 </div>
@@ -980,9 +980,9 @@ NULL</code></pre>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>p4</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 4a2a1a9 UN-- 48 58 -- 
+<pre><code>IGRAPH 1d0c365 UN-- 48 58 -- 
 + attr: name (v/c)
-+ edges from 4a2a1a9 (vertex names):
++ edges from 1d0c365 (vertex names):
  [1] И.И.Мелиссино       --Н.И.Новиков         
  [2] Н.И.Новиков         --М.И.Багрянский      
  [3] Ф.И.Миллер          --Н.Н.Бантыш-Каменский
@@ -1032,9 +1032,9 @@ NULL</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">delete_vertices</span>(p4, <span class="fu">vertex_attr</span>(p4)<span class="sc">$</span>degree <span class="sc">==</span> <span class="dv">0</span>)</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>p5</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3ab3b7c UN-- 28 58 -- 
+<pre><code>IGRAPH 0dcb334 UN-- 28 58 -- 
 + attr: name (v/c), degree (v/n)
-+ edges from 3ab3b7c (vertex names):
++ edges from 0dcb334 (vertex names):
  [1] И.И.Мелиссино       --Н.И.Новиков         
  [2] Н.И.Новиков         --М.И.Багрянский      
  [3] Ф.И.Миллер          --Н.Н.Бантыш-Каменский
@@ -1091,9 +1091,9 @@ NULL</code></pre>
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>p6</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>IGRAPH 3ab3b7c UN-- 28 58 -- 
+<pre><code>IGRAPH 0dcb334 UN-- 28 58 -- 
 + attr: name (v/c)
-+ edges from 3ab3b7c (vertex names):
++ edges from 0dcb334 (vertex names):
  [1] b--d  d--g  c--h  d--h  f--i  e--k  b--m  d--m  f--m  d--n  g--n  h--n 
 [13] m--n  a--q  e--q  f--q  l--q  m--q  d--s  l--s  o--s  p--s  q--s  f--u 
 [25] p--u  r--u  s--u  q--v  f--w  s--x  c--y  f--y  n--y  o--y  q--y  u--y 
@@ -1136,12 +1136,12 @@ NULL</code></pre>
 <p>P.S. В последнем задании — картинка; ее буду проверять вручную. Удачи! 🏴‍☠️🏴‍☠️🏴‍☠️</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-Kolaczyk2009" class="csl-entry" role="listitem">
-Kolaczyk, Eric D. 2009 г. <em>Statistical Analysis of Network Data: Methods and Models</em>. Springer.
+Kolaczyk, E. D. 2009. <em>Statistical Analysis of Network Data: Methods and Models</em>. Springer.
 </div>
 <div id="ref-luke2017" class="csl-entry" role="listitem">
-Люк, Дуглас. 2017 г. <em><span>Анализ сетей (графов) в среде R: Руководство пользователя</span></em>. ДМК.
+Люк, Д. 2017. <em><span>Анализ сетей (графов) в среде R. Руководство пользователя</span></em>. ДМК Пресс.
 </div>
 </div>
 </section>
@@ -1280,7 +1280,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1350,7 +1352,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

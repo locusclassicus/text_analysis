@@ -833,14 +833,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Сколько всего слов на букву П в НФЭ?</p>
 </div>
 </div>
-<form name="form_19748" onsubmit="return validate_form_19748()" method="post">
-<input type="text" placeholder="" name="answer_19748">
+<form name="form_55915" onsubmit="return validate_form_55915()" method="post">
+<input type="text" placeholder="" name="answer_55915">
 <input type="submit" value="check">
-<div id="result_19748"></div>
+<div id="result_55915"></div>
 </form>
-<script>function validate_form_19748() {var x, text; var x = document.forms['form_19748']['answer_19748'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_19748').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
+<script>function validate_form_55915() {var x, text; var x = document.forms['form_55915']['answer_55915'].value;if (x == '267'){text = 'ПППравильно ✅';} else {text = 'ППодумайте еще ❌';} document.getElementById('result_55915').innerHTML = text; evaluate_final_score(); return false;}function evaluate_final_score(){
          element = document.getElementById('checkdown_final_score');
-         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_19748').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
+         if(element === null){return false;} else {var element, text, res1;res1 = document.getElementById('result_55915').innerText == 'ПППравильно ✅';text = res1;element.innerHTML = text;
          return false;
          }}</script>
 </section>
@@ -1182,7 +1182,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1252,7 +1254,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

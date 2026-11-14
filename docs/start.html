@@ -843,7 +843,7 @@ Levels: A B C</code></pre>
 </div>
 <blockquote class="blockquote">
 <p>When some people first get to R, they spend a lot of time trying to get rid of NAs. People probably did the same sort of thing when zero was invented. NA is a wonderful thing to have available to you. It is seldom pleasant when your data have missing values, but life if much better with NA than without.</p>
-<p><span class="citation" data-cites="burns2012r">Burns (<a href="references.html#ref-burns2012r" role="doc-biblioref">2012 г.</a>)</span></p>
+<p><span class="citation" data-cites="burns2012r">Burns (<a href="references.html#ref-burns2012r">2012</a>)</span></p>
 </blockquote>
 <p>Как избавиться от NA? В некоторых случаях достаточно аргумента функции.</p>
 <div class="cell">
@@ -1130,9 +1130,9 @@ my_list &lt;-  corpora("foods/breads_and_pastries")</code></pre>
 <p>Дедлайн строго: до 21:00 мск четверга <strong>10 сентября</strong> 2025 (это самая сложная часть дз).</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-burns2012r" class="csl-entry" role="listitem">
-Burns, Patrick. 2012 г. <em><span>The R inferno</span></em>. Lulu.com.
+Burns, P. 2012. <em>The <span>R</span> Inferno</em>. Lulu.com.
 </div>
 </div>
 </section>
@@ -1271,7 +1271,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1341,7 +1343,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

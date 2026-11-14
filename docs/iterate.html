@@ -503,7 +503,7 @@ div.csl-indent {
 </div>
 <blockquote class="blockquote">
 <p>Один из главных принципов программирования на R гласит, что следует обходиться без циклов, а если это невозможно, то циклы должны быть простыми.</p>
-<p>— Нормат Мэтлофф</p>
+<p>— Норман Мэтлофф</p>
 </blockquote>
 <p>Для работы со <em>списками</em> циклы тоже чаще всего избыточны. Для случаев, когда надо применить какую-то функцию ко всем элементам списка, в базовом R для используются функционалы семейства <code>_apply()</code>, а в <code>tidyverse</code> их с успехом заменяет семейство <code>map_()</code> из пакета <code>{purrr}</code>.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -522,7 +522,7 @@ div.csl-indent {
 </section>
 <section id="пакет-purrr" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="пакет-purrr"><span class="header-section-number">4.3</span> Пакет <code>{purrr}</code></h2>
-<p>Разработчики предупреждают, что потребуется время, чтобы овладеть этим инструментом <span class="citation" data-cites="wickham2016">(<a href="references.html#ref-wickham2016" role="doc-biblioref">Wickham и Grolemund 2016 г.</a>)</span>.</p>
+<p>Разработчики предупреждают, что потребуется время, чтобы овладеть этим инструментом <span class="citation" data-cites="wickham2016">(<a href="references.html#ref-wickham2016">Wickham and Grolemund 2016</a>)</span>.</p>
 <blockquote class="blockquote">
 <p>You should never feel bad about using a loop instead of a map function. The map functions are a step up a tower of abstraction, and it can take a long time to get your head around how they work.</p>
 <p>— Hadley Wickham &amp; Garrett Grolemund</p>
@@ -1099,9 +1099,9 @@ Dates associated with name               Type of name
 <p>Файл под названием <code>hw4.R</code> загрузите в GitHub Classroom по <a href="https://classroom.github.com/a/M2VQsiR_">ссылке</a> до 11 октября 11:00 мск.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-wickham2016" class="csl-entry" role="listitem">
-Wickham, Hadley, и Garrett Grolemund. 2016 г. <em><span>R for Data Science</span></em>. O’Reilly. <a href="https://r4ds.had.co.nz/index.html">https://r4ds.had.co.nz/index.html</a>.
+Wickham, H., and Grolemund, G. 2016. <em><span>R</span> for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. O’Reilly. <a href="https://r4ds.had.co.nz">https://r4ds.had.co.nz</a>.
 </div>
 </div>
 </section>
@@ -1240,7 +1240,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1310,7 +1312,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

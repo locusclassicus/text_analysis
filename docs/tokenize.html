@@ -518,7 +518,7 @@ window.Quarto = {
 <section id="виды-токенов" class="level3" data-number="10.1.2">
 <h3 data-number="10.1.2" class="anchored" data-anchor-id="виды-токенов"><span class="header-section-number">10.1.2</span> Виды токенов</h3>
 <p>Токенизация — процесс разделения текста на составляющие (их называют «токенами»). Токенами могут быть слова, символьные или словесные <em>энграммы</em> (n-grams), то есть сочетания символов или слов, даже предложения или параграфы.</p>
-<p>Токенизировать можно в базовом R с использованием регулярных выражений, и <span class="citation" data-cites="jockers2014">Jockers (<a href="references.html#ref-jockers2014" role="doc-biblioref">2014 г.</a>)</span> прекрасно показывает, как это можно делать. Но мы воспользуемся двумя пакетами, которые предназначены специально для работы с текстовыми данными и разделяют идеологию <code>tidyverse</code>: <code>tidytext</code> <span class="citation" data-cites="textmining2017">(<a href="references.html#ref-textmining2017" role="doc-biblioref">Silge и Robinson 2017 г.</a>)</span> и <code>tokenizers</code> <span class="citation" data-cites="hvitfeldt2022">(<a href="references.html#ref-hvitfeldt2022" role="doc-biblioref">Hvitfeldt и Silge 2022 г.</a>)</span>.</p>
+<p>Токенизировать можно в базовом R с использованием регулярных выражений, и <span class="citation" data-cites="jockers2014">Jockers (<a href="references.html#ref-jockers2014">2014</a>)</span> прекрасно показывает, как это можно делать. Но мы воспользуемся двумя пакетами, которые предназначены специально для работы с текстовыми данными и разделяют идеологию <code>tidyverse</code>: <code>tidytext</code> <span class="citation" data-cites="textmining2017">(<a href="references.html#ref-textmining2017">Silge and Robinson 2017</a>)</span> и <code>tokenizers</code> <span class="citation" data-cites="hvitfeldt2022">(<a href="references.html#ref-hvitfeldt2022">Hvitfeldt and Silge 2022</a>)</span>.</p>
 <p>Функция <code>unnest_tokens()</code> из пакета <code>tidytext</code> принимает на входе тиббл, название нового столбца, куда будут «сложены» токены, и название столбца с текстом. Результат — «опрятный» датасет: один токен — одна строка.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>example <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">text =</span> <span class="st">"Owls see owls. An owl!"</span>)</span>
@@ -693,8 +693,8 @@ window.Quarto = {
 <section id="universal-dependencies-и-udpipe" class="level3" data-number="10.2.1">
 <h3 data-number="10.2.1" class="anchored" data-anchor-id="universal-dependencies-и-udpipe"><span class="header-section-number">10.2.1</span> Universal Dependencies и UDPipe</h3>
 <p>Лемматизация — приведение слов к начальной форме (лемме): <em>owls</em> → <em>owl</em>, <em>children</em> → <em>child</em>, <em>went</em> → <em>go</em>. Одного списка окончаний для этого мало, нужен контекст. В предложении <em>She saw an owl</em> слово <em>saw</em> — форма глагола <em>see</em>, а в <em>The saw was sharp</em> — существительное «пила». Поэтому лемматизация, как правило, проводится одновременно с частеречной разметкой (POS-tagging).</p>
-<p>Все это умеет делать <a href="https://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a> — обучаемый конвейер (trainable pipeline) <span class="citation" data-cites="straka2017">(<a href="references.html#ref-straka2017" role="doc-biblioref">Straka и Straková 2017 г.</a>)</span>, для которого существует одноименный <a href="https://bnosac.github.io/udpipe/en/">пакет</a> в R. UDPipe работает с моделями, обученными на трибанках проекта <a href="https://universaldependencies.org/">Universal Dependencies</a> (UD) <span class="citation" data-cites="nivre2020">(<a href="references.html#ref-nivre2020" role="doc-biblioref">Nivre и др. 2020 г.</a>)</span>. UD задает общие для всех языков обозначения частей речи, морфологических признаков и синтаксических связей. Трибанк — это корпус, размеченный по этим правилам; название объясняется тем, что синтаксическая структура предложений представлена в нем в виде деревьев зависимостей.</p>
-<p>Пакет <code>udpipe</code> позволяет работать со множеством языков, для многих из которых есть несколько моделей, обученных на разных трибанках (<a href="https://bnosac.github.io/udpipe/docs/doc1.html">список</a>). Для английского мы возьмем модель, обученную на English Web Treebank (EWT) <span class="citation" data-cites="silveira2014">(<a href="references.html#ref-silveira2014" role="doc-biblioref">Silveira и др. 2014 г.</a>)</span>. Это интернет-тексты пяти жанров: блоги, новостные группы, электронные письма, отзывы и ответы на вопросы. Художественной прозы там нет; это стоит помнить, когда мы будем проверять результат.</p>
+<p>Все это умеет делать <a href="https://lindat.mff.cuni.cz/services/udpipe/">UDPipe</a> — обучаемый конвейер (trainable pipeline) <span class="citation" data-cites="straka2017">(<a href="references.html#ref-straka2017">Straka and Straková 2017</a>)</span>, для которого существует одноименный <a href="https://bnosac.github.io/udpipe/en/">пакет</a> в R. UDPipe работает с моделями, обученными на трибанках проекта <a href="https://universaldependencies.org/">Universal Dependencies</a> (UD) <span class="citation" data-cites="nivre2020">(<a href="references.html#ref-nivre2020">Nivre et al. 2020</a>)</span>. UD задает общие для всех языков обозначения частей речи, морфологических признаков и синтаксических связей. Трибанк — это корпус, размеченный по этим правилам; название объясняется тем, что синтаксическая структура предложений представлена в нем в виде деревьев зависимостей.</p>
+<p>Пакет <code>udpipe</code> позволяет работать со множеством языков, для многих из которых есть несколько моделей, обученных на разных трибанках (<a href="https://bnosac.github.io/udpipe/docs/doc1.html">список</a>). Для английского мы возьмем модель, обученную на English Web Treebank (EWT) <span class="citation" data-cites="silveira2014">(<a href="references.html#ref-silveira2014">Silveira et al. 2014</a>)</span>. Это интернет-тексты пяти жанров: блоги, новостные группы, электронные письма, отзывы и ответы на вопросы. Художественной прозы там нет; это стоит помнить, когда мы будем проверять результат.</p>
 <p>Модель нужно один раз скачать, а затем загружать в каждой новой сессии.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">udpipe_download_model</span>(<span class="at">language =</span> <span class="st">"english-ewt"</span>)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
@@ -871,41 +871,17 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Посмотрим на первое предложение. В отличие от <code>tidytext</code>, UDPipe не разделил <em>Mr.&nbsp;and Mrs.&nbsp;Dursley</em> на два предложения.</p>
+<p>Посмотрим на первое предложение. В таблице одна строка соответствует одному токену, а полный текст предложения повторяется в каждой его строке. Поэтому перед <code>pull()</code> оставим только уникальные значения с помощью <code>distinct()</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>annotation <span class="sc">|&gt;</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(doc_id <span class="sc">==</span> <span class="st">"1"</span>, sentence_id <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sentence)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(sentence) <span class="sc">|&gt;</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sentence)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [2] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [3] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [4] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [5] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [6] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [7] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [8] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
- [9] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[10] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[11] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[12] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[13] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[14] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[15] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[16] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[17] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[18] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[19] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[20] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[21] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[22] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[23] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[24] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[25] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[26] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."
-[27] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."</code></pre>
+<pre><code>[1] "Mr. and Mrs. Dursley, of number four, Privet Drive, were proud to say that they were perfectly normal, thank you very much."</code></pre>
 </div>
 </div>
+<p>В отличие от <code>tidytext</code>, UDPipe не разделил <em>Mr.&nbsp;and Mrs.&nbsp;Dursley</em> на два предложения.</p>
 <p>Отделим слова от пунктуации (<code>PUNCT</code>) и символов (<code>SYM</code>) и сравним число разных словоформ и лемм в одной и той же таблице.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>annotated_words <span class="ot">&lt;-</span> annotation <span class="sc">|&gt;</span></span>
@@ -986,15 +962,16 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>annotated_words <span class="sc">|&gt;</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(form <span class="sc">==</span> <span class="st">"hagrid"</span>, upos <span class="sc">==</span> <span class="st">"AUX"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sentence)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(sentence) <span class="sc">|&gt;</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sentence)</span></code></pre></div><button title="Скопировать текст" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Then, suddenly, Hagrid let out a howl like a wounded dog."
 [2] "Hagrid looked shocked."                                   
 [3] "Hagrid thundered."                                        </code></pre>
 </div>
 </div>
-<p>Здесь есть два пути. Первый: попробовать другие модели. Например, в многожанровом корпусе <a href="https://universaldependencies.org/treebanks/en_gum/index.html">GUM</a> <span class="citation" data-cites="zeldes2017">(<a href="references.html#ref-zeldes2017" role="doc-biblioref">Zeldes 2017 г.</a>)</span> есть художественная проза, и модель <code>english-gum</code> правильно сводит <em>crept</em> к <em>creep</em>. Но и она ошибается: <em>woken</em> превращается у нее в <em>woke</em> или даже <em>weak</em>, а <em>leapt</em> — в несуществующее <em>leaep</em>. Ни одна модель не лучше во всем, поэтому проверять результат нужно на словах, важных для конкретного исследования.</p>
+<p>Здесь есть два пути. Первый: попробовать другие модели. Например, в многожанровом корпусе <a href="https://universaldependencies.org/treebanks/en_gum/index.html">GUM</a> <span class="citation" data-cites="zeldes2017">(<a href="references.html#ref-zeldes2017">Zeldes 2017</a>)</span> есть художественная проза, и модель <code>english-gum</code> правильно сводит <em>crept</em> к <em>creep</em>. Но и она ошибается: <em>woken</em> превращается у нее в <em>woke</em> или даже <em>weak</em>, а <em>leapt</em> — в несуществующее <em>leaep</em>. Ни одна модель не лучше во всем, поэтому проверять результат нужно на словах, важных для конкретного исследования.</p>
 <p>Второй путь — дообучить модель на размеченных примерах, похожих на ваш корпус. Инструкция есть в <a href="https://bnosac.github.io/udpipe/docs/doc3.html">документации пакета</a>. Новые модели для многих языков доступны также через <a href="https://lindat.mff.cuni.cz/services/udpipe/">веб-сервис UDPipe 2</a>, с которым можно работать по API.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1062,7 +1039,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Подобная картина характерна для естественных языков. Распределения слов в них подчиняются закону Ципфа <span class="citation" data-cites="zipf1949">(<a href="references.html#ref-zipf1949" role="doc-biblioref">Zipf 1949 г.</a>)</span>: если все слова языка или длинного текста упорядочить по убыванию частоты использования, частотность (<span class="math inline">\(tf\)</span>) <span class="math inline">\(i\)</span>-го слова в списке окажется <em>обратно пропорциональной</em> его рангу (<span class="math inline">\(r\)</span>) в степени <span class="math inline">\(α\)</span> <span class="citation" data-cites="savoy2020">(<a href="references.html#ref-savoy2020" role="doc-biblioref">Savoy 2020 г., 24</a>)</span>:</p>
+<p>Подобная картина характерна для естественных языков. Распределения слов в них подчиняются закону Ципфа <span class="citation" data-cites="zipf1949">(<a href="references.html#ref-zipf1949">Zipf 1949</a>)</span>: если все слова языка или длинного текста упорядочить по убыванию частоты использования, частотность (<span class="math inline">\(tf\)</span>) <span class="math inline">\(i\)</span>-го слова в списке окажется <em>обратно пропорциональной</em> его рангу (<span class="math inline">\(r\)</span>) в степени <span class="math inline">\(α\)</span> <span class="citation" data-cites="savoy2020">(<a href="references.html#ref-savoy2020">Savoy 2020, 24</a>)</span>:</p>
 <p><span class="math display">\[tf_{r_i} = \frac{c}{r^α_i}\]</span></p>
 <p>Здесь <span class="math inline">\(c\)</span> — константа, которая оценивается для каждого случая отдельно, как и параметр <span class="math inline">\(α\)</span>. В самом простом случае <span class="math inline">\(α = 1\)</span>: второе слово встречается примерно в два раза реже первого, десятое — в десять раз реже. Сравним этот прогноз с нашими данными.</p>
 <div class="cell">
@@ -1176,7 +1153,7 @@ window.Quarto = {
      0.42211812      0.03242264 </code></pre>
 </div>
 </div>
-<p>Гапаксы составляют более 40% словаря, но около 3% текста. Противоречия нет: редких слов много, но каждое встречается всего раз. Такие распределения называют LNRE (Large Number of Rare Events, «большое число редких событий») <span class="citation" data-cites="baayen2001">(<a href="references.html#ref-baayen2001" role="doc-biblioref">Baayen 2001 г.</a>)</span>: даже прочитав большую часть книги, мы продолжаем встречать новые слова.</p>
+<p>Гапаксы составляют более 40% словаря, но около 3% текста. Противоречия нет: редких слов много, но каждое встречается всего раз. Такие распределения называют LNRE (Large Number of Rare Events, «большое число редких событий») <span class="citation" data-cites="baayen2001">(<a href="references.html#ref-baayen2001">Baayen 2001</a>)</span>: даже прочитав большую часть книги, мы продолжаем встречать новые слова.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1232,7 +1209,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Кривая растет все медленнее, но не выходит на плато: новые персонажи и сцены приносят новые слова.</p>
-<p>Отношение числа типов к числу токенов, TTR (type-token ratio), часто используют как меру «лексического богатства». Но TTR падает с ростом текста: для первых 5000 токенов он около 0,24, для всей книги — около 0,08. Длинный текст кажется «беднее» просто потому, что слова в нем успевают повториться. Неудивительно, что Баайен называет TTR худшей из всех мер лексического богатства; практическое решение — сравнивать объем словаря текстов при одинаковом числе токенов <span class="citation" data-cites="Baayen2008">(<a href="references.html#ref-Baayen2008" role="doc-biblioref">Baayen 2008 г., 223–24</a>)</span>.</p>
+<p>Отношение числа типов к числу токенов, TTR (type-token ratio), часто используют как меру «лексического богатства». Но TTR падает с ростом текста: для первых 5000 токенов он около 0,24, для всей книги — около 0,08. Длинный текст кажется «беднее» просто потому, что слова в нем успевают повториться. Неудивительно, что Баайен называет TTR худшей из всех мер лексического богатства; практическое решение — сравнивать объем словаря текстов при одинаковом числе токенов <span class="citation" data-cites="Baayen2008">(<a href="references.html#ref-Baayen2008">Baayen 2008, 223–24</a>)</span>.</p>
 </section>
 <section id="tf-idf" class="level3" data-number="10.3.5">
 <h3 data-number="10.3.5" class="anchored" data-anchor-id="tf-idf"><span class="header-section-number">10.3.5</span> TF-IDF</h3>
@@ -1341,7 +1318,7 @@ window.Quarto = {
 <h2 data-number="10.4" class="anchored" data-anchor-id="коллокации"><span class="header-section-number">10.4</span> Коллокации</h2>
 <section id="что-значит-вместе" class="level3" data-number="10.4.1">
 <h3 data-number="10.4.1" class="anchored" data-anchor-id="что-значит-вместе"><span class="header-section-number">10.4.1</span> Что значит «вместе»</h3>
-<p>До сих пор мы рассматривали слова по отдельности. Теперь нас интересует, какие слова встречаются вместе. «Вместе» можно понимать по-разному, и от этого зависит, что мы найдем <span class="citation" data-cites="evert2008">(<a href="references.html#ref-evert2008" role="doc-biblioref">Evert 2008 г.</a>)</span>:</p>
+<p>До сих пор мы рассматривали слова по отдельности. Теперь нас интересует, какие слова встречаются вместе. «Вместе» можно понимать по-разному, и от этого зависит, что мы найдем <span class="citation" data-cites="evert2008">(<a href="references.html#ref-evert2008">Evert 2008</a>)</span>:</p>
 <ul>
 <li><strong>в одном предложении</strong> (или в одном документе): порядок и расстояние неважны. Так видно, о ком и о чем говорят вместе, — например, какие персонажи появляются в одних и тех же сценах;</li>
 <li><strong>по соседству</strong>, в окне из нескольких слов: порядок важен, расстояние ограничено. Так находятся сочетания вроде «прилагательное + существительное», даже если между словами что-то вставлено;</li>
@@ -1372,7 +1349,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Порядок слов здесь не учитывается: пара записывается по алфавиту (<em>mcgonagall professor</em>). Если слово повторено в предложении, совпадения умножаются. Функция возвращает таблицу особого класса, поэтому мы превращаем ее в тиббл: иначе с ней не будут работать функции вроде <code>slice_head()</code>.</p>
-<p>Такие данные удобно представить в виде графа: персонажи будут вершинами, совместные упоминания — ребрами, а толщина ребра покажет частоту пары <span class="citation" data-cites="textmining2017">(<a href="references.html#ref-textmining2017" role="doc-biblioref">Silge и Robinson 2017 г., гл. 4</a>)</span>. Функция <code>graph_from_data_frame()</code> из пакета <code>igraph</code> превращает таблицу в граф: первые два столбца означают концы ребра, остальные становятся его свойствами (у нас это <code>cooc</code>). Пакет <code>ggraph</code> рисует графы по правилам <code>ggplot2</code>: вместо <code>geom_point()</code> и <code>geom_line()</code> здесь <code>geom_node_point()</code> и <code>geom_edge_link()</code>. Раскладка <code>"fr"</code> помещает связанные вершины рядом; она случайна, поэтому мы фиксируем <code>set.seed()</code>. Возьмем 40 самых частых пар.</p>
+<p>Такие данные удобно представить в виде графа: персонажи будут вершинами, совместные упоминания — ребрами, а толщина ребра покажет частоту пары <span class="citation" data-cites="textmining2017">(<a href="references.html#ref-textmining2017">Silge and Robinson 2017</a>, гл. 4)</span>. Функция <code>graph_from_data_frame()</code> из пакета <code>igraph</code> превращает таблицу в граф: первые два столбца означают концы ребра, остальные становятся его свойствами (у нас это <code>cooc</code>). Пакет <code>ggraph</code> рисует графы по правилам <code>ggplot2</code>: вместо <code>geom_point()</code> и <code>geom_line()</code> здесь <code>geom_node_point()</code> и <code>geom_edge_link()</code>. Раскладка <code>"fr"</code> помещает связанные вершины рядом; она случайна, поэтому мы фиксируем <code>set.seed()</code>. Возьмем 40 самых частых пар.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
@@ -1484,10 +1461,10 @@ window.Quarto = {
 </div>
 </div>
 <p>Частота — первое, что приходит в голову, но частые пары нередко состоят просто из частых слов: <em>harry feel</em> («Гарри почувствовал») встречается часто только потому, что часто встречается сам Гарри. Меры связи сравнивают частоту пары с частотами слов по отдельности. Все три меры в <code>keywords_collocation()</code> выражены через доли: <span class="math inline">\(P(w_1 w_2)\)</span> — доля пары, <span class="math inline">\(P(w_1)\)</span> и <span class="math inline">\(P(w_2)\)</span> — доли каждого слова.</p>
-<p><strong>PMI</strong> (pointwise mutual information, точечная взаимная информация) показывает, во сколько раз пара встречается чаще, чем если бы слова оказывались рядом случайно <span class="citation" data-cites="church1990">(<a href="references.html#ref-church1990" role="doc-biblioref">Church и Hanks 1990 г.</a>)</span>:</p>
+<p><strong>PMI</strong> (pointwise mutual information, точечная взаимная информация) показывает, во сколько раз пара встречается чаще, чем если бы слова оказывались рядом случайно <span class="citation" data-cites="church1990">(<a href="references.html#ref-church1990">Church and Hanks 1990</a>)</span>:</p>
 <p><span class="math display">\[PMI = \log_2 \frac{P(w_1 w_2)}{P(w_1) \times P(w_2)}\]</span></p>
 <p>Значение 0 означает «как при случайности», 1 — вдвое чаще, 2 — вчетверо. С этой мерой мы еще встретимся в уроке о векторных представлениях.</p>
-<p><strong>MD</strong> (mutual dependency) и <strong>LFMD</strong> (log-frequency biased mutual dependency) добавляют к PMI поправку на частоту пары <span class="citation" data-cites="thanopoulos2002">(<a href="references.html#ref-thanopoulos2002" role="doc-biblioref">Thanopoulos и др. 2002 г.</a>)</span>:</p>
+<p><strong>MD</strong> (mutual dependency) и <strong>LFMD</strong> (log-frequency biased mutual dependency) добавляют к PMI поправку на частоту пары <span class="citation" data-cites="thanopoulos2002">(<a href="references.html#ref-thanopoulos2002">Thanopoulos et al. 2002</a>)</span>:</p>
 <p><span class="math display">\[MD = PMI + \log_2 P(w_1 w_2), \qquad LFMD = MD + \log_2 P(w_1 w_2)\]</span></p>
 <p>Логарифм доли всегда отрицателен, и чем реже пара, тем больше штраф. Поэтому сами значения MD и LFMD отрицательны: смотреть нужно на порядок пар, а не на числа.</p>
 <p>Разницу легко понять на «неразлучных» парах, слова которых встречаются только вместе, — как <em>diagon alley</em> или <em>boa constrictor</em>:</p>
@@ -1558,9 +1535,9 @@ window.Quarto = {
 <ul>
 <li><strong>Частота</strong> показывает, что вообще часто стоит рядом. Это хороший первый взгляд и порог: пары, встретившиеся один-два раза, ненадежны.</li>
 <li><strong>PMI</strong> подходит для поиска имен, названий, терминов и идиом — неразлучных пар. Ее используют только вместе с порогом частоты, иначе наверху окажутся единичные случаи.</li>
-<li><strong>LFMD</strong> находит сочетания, которые и устойчивы, и достаточно частотны. В сравнении нескольких мер, проведенном ее авторами, она показала лучший результат <span class="citation" data-cites="thanopoulos2002">(<a href="references.html#ref-thanopoulos2002" role="doc-biblioref">Thanopoulos и др. 2002 г.</a>)</span>. MD — промежуточный вариант.</li>
+<li><strong>LFMD</strong> находит сочетания, которые и устойчивы, и достаточно частотны. В сравнении нескольких мер, проведенном ее авторами, она показала лучший результат <span class="citation" data-cites="thanopoulos2002">(<a href="references.html#ref-thanopoulos2002">Thanopoulos et al. 2002</a>)</span>. MD — промежуточный вариант.</li>
 </ul>
-<p>В корпусных программах вы встретите и другие меры: logDice <span class="citation" data-cites="rychly2008">(<a href="references.html#ref-rychly2008" role="doc-biblioref">Rychlý 2008 г.</a>)</span>, t-score, log-likelihood <span class="citation" data-cites="dunning1993">(<a href="references.html#ref-dunning1993" role="doc-biblioref">Dunning 1993 г.</a>)</span>. Логика у них та же: сравнить частоту пары с частотами слов по отдельности и решить, сколько веса дать редким парам. Подробный обзор мер — у <span class="citation" data-cites="evert2008">Evert (<a href="references.html#ref-evert2008" role="doc-biblioref">2008 г.</a>)</span>.</p>
+<p>В корпусных программах вы встретите и другие меры: logDice <span class="citation" data-cites="rychly2008">(<a href="references.html#ref-rychly2008">Rychlý 2008</a>)</span>, t-score, log-likelihood <span class="citation" data-cites="dunning1993">(<a href="references.html#ref-dunning1993">Dunning 1993</a>)</span>. Логика у них та же: сравнить частоту пары с частотами слов по отдельности и решить, сколько веса дать редким парам. Подробный обзор мер — у <span class="citation" data-cites="evert2008">Evert (<a href="references.html#ref-evert2008">2008</a>)</span>.</p>
 <p>Мера связи помогает найти устойчивое сочетание, но не говорит, что перед нами: имя персонажа, предмет волшебного мира (<em>invisibility cloak</em>) или фразеологизм. Это решает чтение контекстов.</p>
 </section>
 <section id="проверка-по-тексту" class="level3" data-number="10.4.6">
@@ -1602,60 +1579,60 @@ window.Quarto = {
 </section>
 <section id="домашнее-задание" class="level2" data-number="10.6">
 <h2 data-number="10.6" class="anchored" data-anchor-id="домашнее-задание"><span class="header-section-number">10.6</span> Домашнее задание</h2>
-<p>По <a href="https://github.com/locusclassicus/philology_2025/raw/refs/heads/main/data/tales_text.Rdata">ссылке</a> вы найдете датасет со сказками Салтыкова-Щедрина (в формате <code>.Rdata</code>). Вам необходимо аннотировать сказки, используя модель <a href="https://universaldependencies.org/treebanks/ru_syntagrus/index.html">SynTagRus</a> через пакет <code>{udpipe}</code> (версия модели 2.5).</p>
-<p>После этого ответьте на вопросы по <a href="https://forms.gle/zb5JRk25685CHb849">ссылке</a>. Задание считается выполненным, если верные ответы даны на 3 из 5 вопросов.</p>
-<p>Ошибки лемматизации и морфологического анализа игнорируйте.</p>
+<p>По <a href="https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/tales_text.Rdata">ссылке</a> вы найдете датасет со сказками Салтыкова-Щедрина (в формате <code>.Rdata</code>). Вам необходимо аннотировать сказки, используя модель <a href="https://universaldependencies.org/treebanks/ru_syntagrus/index.html">SynTagRus</a> через пакет <code>{udpipe}</code> (версия модели 2.5).</p>
+<p>После этого ответьте на вопросы по <a href="https://forms.gle/zb5JRk25685CHb849">ссылке</a>. Задание считается выполненным, если верные ответы даны на 7 из 11 вопросов (последний вопрос необязательный).</p>
+<p>Ошибки модели не исправляйте, но в некоторых вопросах их нужно найти.</p>
 <p>Дедлайн: 28 ноября, 21-00.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-Baayen2008" class="csl-entry" role="listitem">
-Baayen, R. H. 2008 г. <em><span>Analyzing Linguistic Data: A Practical Introduction to Statistics using R</span></em>. Cambridge University Press.
-</div>
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-baayen2001" class="csl-entry" role="listitem">
-Baayen, R. Harald. 2001 г. <em>Word Frequency Distributions</em>. Kluwer Academic Publishers.
+Baayen, R. H. 2001. <em>Word Frequency Distributions</em>. Kluwer Academic Publishers.
+</div>
+<div id="ref-Baayen2008" class="csl-entry" role="listitem">
+Baayen, R. H. 2008. <em>Analyzing Linguistic Data: A Practical Introduction to Statistics Using <span>R</span></em>. Cambridge University Press.
 </div>
 <div id="ref-church1990" class="csl-entry" role="listitem">
-Church, Kenneth Ward, и Patrick Hanks. 1990 г. <span>«Word Association Norms, Mutual Information, and Lexicography»</span>. <em>Computational Linguistics</em> 16 (1): 22–29.
+Church, K. W., and Hanks, P. 1990. <span>“Word Association Norms, Mutual Information, and Lexicography.”</span> <em><span>Computational Linguistics</span></em> 16 (1): 22–29.
 </div>
 <div id="ref-dunning1993" class="csl-entry" role="listitem">
-Dunning, Ted. 1993 г. <span>«Accurate Methods for the Statistics of Surprise and Coincidence»</span>. <em>Computational Linguistics</em> 19 (1): 61–74.
+Dunning, T. 1993. <span>“Accurate Methods for the Statistics of Surprise and Coincidence.”</span> <em><span>Computational Linguistics</span></em> 19 (1): 61–74.
 </div>
 <div id="ref-evert2008" class="csl-entry" role="listitem">
-Evert, S. 2008 г. <span>«Corpora and Collocations»</span>. В <em>Corpus Linguistics: An International Handbook</em>, под редакцией Anke Lüdeling и Merja Kytö, т. 2. Mouton de Gruyter.
+Evert, S. 2008. <span>“Corpora and Collocations.”</span> In <em>Corpus Linguistics: An International Handbook</em>, edited by Lüdeling, A. and Kytö, M., vol. 2. Mouton de Gruyter.
 </div>
 <div id="ref-hvitfeldt2022" class="csl-entry" role="listitem">
-Hvitfeldt, Emil, и Julia Silge. 2022 г. <em><span>Supervised Machine Learning for Text Analysis in R</span></em>. Taylor; Francis.
+Hvitfeldt, E., and Silge, J. 2022. <em>Supervised Machine Learning for Text Analysis in <span>R</span></em>. CRC Press.
 </div>
 <div id="ref-jockers2014" class="csl-entry" role="listitem">
-Jockers, Matthew L. 2014 г. <em>Text Analysis with R for Students of Literature</em>. Springer.
+Jockers, M. L. 2014. <em>Text Analysis with <span>R</span> for Students of Literature</em>. Springer.
 </div>
 <div id="ref-nivre2020" class="csl-entry" role="listitem">
-Nivre, Joakim, Marie-Catherine de Marneffe, Filip Ginter, и др. 2020 г. <span>«Universal Dependencies v2: An Evergrowing Multilingual Treebank Collection»</span>. <em>Proceedings of the 12th Language Resources and Evaluation Conference</em>, 4034–43.
+Nivre, J., Marneffe, M.-C. de, Ginter, F., et al. 2020. <span>“Universal Dependencies <span class="nocase">v2</span>: An Evergrowing Multilingual Treebank Collection.”</span> <em>Proceedings of the 12th Language Resources and Evaluation Conference</em> (Marseille), 4034–43.
 </div>
 <div id="ref-rychly2008" class="csl-entry" role="listitem">
-Rychlý, Pavel. 2008 г. <span>«A Lexicographer-Friendly Association Score»</span>. <em>Proceedings of Recent Advances in Slavonic Natural Language Processing, RASLAN 2008</em>, 6–9.
+Rychlý, P. 2008. <span>“A Lexicographer-Friendly Association Score.”</span> <em>Proceedings of Recent Advances in Slavonic Natural Language Processing, <span>RASLAN</span> 2008</em> (Brno), 6–9.
 </div>
 <div id="ref-savoy2020" class="csl-entry" role="listitem">
-Savoy, Jacques. 2020 г. <em>Machine Learning Methods for Stylometry</em>. Springer.
+Savoy, J. 2020. <em>Machine Learning Methods for Stylometry: Authorship Attribution and Author Profiling</em>. Springer.
 </div>
 <div id="ref-textmining2017" class="csl-entry" role="listitem">
-Silge, Julia, и David Robinson. 2017 г. <em>Text Mining with R</em>. O’Reilly. <a href="http://www.tidytextmining.com">http://www.tidytextmining.com</a>.
+Silge, J., and Robinson, D. 2017. <em>Text Mining with <span>R</span>: A Tidy Approach</em>. O’Reilly. <a href="https://www.tidytextmining.com">https://www.tidytextmining.com</a>.
 </div>
 <div id="ref-silveira2014" class="csl-entry" role="listitem">
-Silveira, Natalia, Timothy Dozat, Marie-Catherine de Marneffe, и др. 2014 г. <span>«A Gold Standard Dependency Corpus for English»</span>. <em>Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC 2014)</em>.
+Silveira, N., Dozat, T., Marneffe, M.-C. de, et al. 2014. <span>“A Gold Standard Dependency Corpus for <span>English</span>.”</span> <em>Proceedings of the Ninth International Conference on Language Resources and Evaluation (<span>LREC</span> 2014)</em> (Reykjavik), 2897–904.
 </div>
 <div id="ref-straka2017" class="csl-entry" role="listitem">
-Straka, Milan, и Jana Straková. 2017 г. <span>«Tokenizing, POS Tagging, Lemmatizing and Parsing UD 2.0 with UDPipe»</span>. <em>Proceedings of the CoNLL 2017 Shared Task: Multilingual Parsing from Raw Text to Universal Dependencies</em>, 88–99.
+Straka, M., and Straková, J. 2017. <span>“Tokenizing, <span>POS</span> Tagging, Lemmatizing and Parsing <span>UD</span> 2.0 with <span>UDPipe</span>.”</span> <em>Proceedings of the <span>CoNLL</span> 2017 Shared Task: Multilingual Parsing from Raw Text to Universal Dependencies</em> (Vancouver), 88–99.
 </div>
 <div id="ref-thanopoulos2002" class="csl-entry" role="listitem">
-Thanopoulos, Aristomenis, Nikos Fakotakis, и George Kokkinakis. 2002 г. <span>«Comparative Evaluation of Collocation Extraction Metrics»</span>. <em>Proceedings of the Third International Conference on Language Resources and Evaluation (LREC’02)</em> (Las Palmas), 620–25.
+Thanopoulos, A., Fakotakis, N., and Kokkinakis, G. 2002. <span>“Comparative Evaluation of Collocation Extraction Metrics.”</span> <em>Proceedings of the Third International Conference on Language Resources and Evaluation (<span>LREC</span>’02)</em> (Las Palmas), 620–25.
 </div>
 <div id="ref-zeldes2017" class="csl-entry" role="listitem">
-Zeldes, Amir. 2017 г. <span>«The GUM Corpus: Creating Multilayer Resources in the Classroom»</span>. <em>Language Resources and Evaluation</em> 51 (3): 581–612.
+Zeldes, A. 2017. <span>“The <span>GUM</span> Corpus: Creating Multilayer Resources in the Classroom.”</span> <em><span class="nocase">Language Resources and Evaluation</span></em> 51 (3): 581–612.
 </div>
 <div id="ref-zipf1949" class="csl-entry" role="listitem">
-Zipf, George Kingsley. 1949 г. <em>Human Behavior and the Principle of Least Effort</em>. Addison-Wesley.
+Zipf, G. K. 1949. <em>Human Behavior and the Principle of Least Effort</em>. Addison-Wesley.
 </div>
 </div>
 </section>
@@ -1794,7 +1771,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -1864,7 +1843,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">

@@ -465,7 +465,7 @@ window.Quarto = {
 <li><p><em>случайный лес</em>: комбинирует предсказания множества деревьев для повышения точности и устойчивости.</p></li>
 </ol>
 <p>Кроме того, существуют методы регуляризации линейных моделей, позволяющие существенно улучшить их качество на данных большой размерности (т.е. с большим количеством предкторов). К таким алгоритмам относятся <em>гребневая регрессия</em> и метод <em>лассо</em>. О них мы поговорим в одном из следующих уроков.</p>
-<p>О математической стороне дела см. <span class="citation" data-cites="хасти2017">Г. Джеймс, Д. Уиттон, Т. Хасти, Р. Тибришани (<a href="references.html#ref-хасти2017" role="doc-biblioref">2017 г.</a>)</span>. В этом уроке мы начнем работать с различными регрессионными алгоритмами, используя библиотеку <code>{tidymodels}</code>.</p>
+<p>О математической стороне дела см. <span class="citation" data-cites="хасти2017">Джеймс и др. (<a href="references.html#ref-хасти2017">2017</a>)</span>. В этом уроке мы начнем работать с различными регрессионными алгоритмами, используя библиотеку <code>{tidymodels}</code>.</p>
 </section>
 <section id="библиотека-tidymodels" class="level2" data-number="24.2">
 <h2 data-number="24.2" class="anchored" data-anchor-id="библиотека-tidymodels"><span class="header-section-number">24.2</span> Библиотека <code>tidymodels</code></h2>
@@ -13436,9 +13436,9 @@ Computational engine: LiblineaR </code></pre>
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" style="display: none" role="list">
 <div id="ref-хасти2017" class="csl-entry" role="listitem">
-Г. Джеймс, Д. Уиттон, Т. Хасти, Р. Тибришани. 2017 г. <em>Введение в статистическое обучение с примерами на языке R</em>. ДМК.
+Джеймс, Г., Уиттон, Д., Хасти, Т., и Тибширани, Р. 2017. <em><span>Введение в статистическое обучение с примерами на языке R</span></em>. ДМК Пресс.
 </div>
 </div>
 </section>
@@ -13577,7 +13577,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -13647,7 +13649,7 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
