@@ -131,7 +131,9 @@ radiogroups_func = function(e) {
   update_total_correct();
 }
 
-window.onload = function() {
+/* addEventListener, not window.onload: pagedtable.js also uses window.onload,
+   and overwriting it left every paged table (tibble output) blank */
+window.addEventListener("load", function() {
   console.log("webex onload");
   /* set up solution buttons */
   var buttons = document.getElementsByTagName("button");
@@ -201,6 +203,6 @@ window.onload = function() {
   }
 
   update_total_correct();
-}
+});
 
 </script>

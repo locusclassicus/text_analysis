@@ -183,6 +183,7 @@ annotation
 
 annotation |>
   filter(doc_id == "1", sentence_id == 1) |>
+  distinct(sentence) |>   # текст предложения повторяется в строке каждого токена
   pull(sentence)
 
 annotated_words <- annotation |>
@@ -219,6 +220,7 @@ annotated_words |>
 
 annotated_words |>
   filter(form == "hagrid", upos == "AUX") |>
+  distinct(sentence) |>
   slice_head(n = 3) |>
   pull(sentence)
 

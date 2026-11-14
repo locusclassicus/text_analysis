@@ -312,13 +312,16 @@ load("../data/hp_annotation.Rdata")
 annotation
 ```
 
-Посмотрим на первое предложение. В отличие от `tidytext`, UDPipe не разделил _Mr. and Mrs. Dursley_ на два предложения.
+Посмотрим на первое предложение. В таблице одна строка соответствует одному токену, а полный текст предложения повторяется в каждой его строке. Поэтому перед `pull()` оставим только уникальные значения с помощью `distinct()`.
 
 ```{r}
 annotation |>
   filter(doc_id == "1", sentence_id == 1) |>
+  distinct(sentence) |>
   pull(sentence)
 ```
+
+В отличие от `tidytext`, UDPipe не разделил _Mr. and Mrs. Dursley_ на два предложения.
 
 Отделим слова от пунктуации (`PUNCT`) и символов (`SYM`) и сравним число разных словоформ и лемм в одной и той же таблице.
 
@@ -376,6 +379,7 @@ annotated_words |>
 ```{r}
 annotated_words |>
   filter(form == "hagrid", upos == "AUX") |>
+  distinct(sentence) |>
   slice_head(n = 3) |>
   pull(sentence)
 ```
@@ -848,10 +852,10 @@ restricted |>
 
 ## Домашнее задание
 
-По [ссылке](https://github.com/locusclassicus/philology_2025/raw/refs/heads/main/data/tales_text.Rdata) вы найдете датасет со сказками Салтыкова-Щедрина (в формате `.Rdata`). Вам необходимо аннотировать сказки, используя модель [SynTagRus](https://universaldependencies.org/treebanks/ru_syntagrus/index.html) через пакет `{udpipe}` (версия модели 2.5).
+По [ссылке](https://github.com/locusclassicus/text_analysis/raw/refs/heads/main/data/tales_text.Rdata) вы найдете датасет со сказками Салтыкова-Щедрина (в формате `.Rdata`). Вам необходимо аннотировать сказки, используя модель [SynTagRus](https://universaldependencies.org/treebanks/ru_syntagrus/index.html) через пакет `{udpipe}` (версия модели 2.5).
 
-После этого ответьте на вопросы по [ссылке](https://forms.gle/zb5JRk25685CHb849). Задание считается выполненным, если верные ответы даны на 3 из 5 вопросов.
+После этого ответьте на вопросы по [ссылке](https://forms.gle/zb5JRk25685CHb849). Задание считается выполненным, если верные ответы даны на 7 из 11 вопросов (последний вопрос необязательный).
 
-Ошибки лемматизации и морфологического анализа игнорируйте.
+Ошибки модели не исправляйте, но в некоторых вопросах их нужно найти.
 
 Дедлайн: 28 ноября, 21-00.
